@@ -5,8 +5,8 @@
     
     <entry>
       <title>Java</title>
-      <link href="/2020/04/10/postName/"/>
-      <url>/2020/04/10/postName/</url>
+      <link href="/2020/04/10/hello-world/"/>
+      <url>/2020/04/10/hello-world/</url>
       
         <content type="html"><![CDATA[<p>三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出口被松开初步设计擦拭库存卡删除插卡式缴纳存款基本上查看坚实基础</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       
@@ -29,9 +29,34 @@
     
     
     <entry>
+      <title>javascript</title>
+      <link href="/2020/04/10/javascript/"/>
+      <url>/2020/04/10/javascript/</url>
+      
+        <content type="html"><![CDATA[<p>三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出口被松开初步设计擦拭库存卡删除插卡式缴纳存款基本上查看坚实基础</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+      
+      
+      <categories>
+          
+          <category> blog </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> javascript </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Java</title>
-      <link href="/2020/04/10/hello-world/"/>
-      <url>/2020/04/10/hello-world/</url>
+      <link href="/2020/04/10/postName/"/>
+      <url>/2020/04/10/postName/</url>
       
         <content type="html"><![CDATA[<p>三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出口被松开初步设计擦拭库存卡删除插卡式缴纳存款基本上查看坚实基础</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
       

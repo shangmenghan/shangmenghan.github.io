@@ -141,7 +141,7 @@
     <ul class="sub-nav menus_item_child ">
       
       <li>
-        <a href="/musics">
+        <a href="/">
           
           <i class="fas fa-music" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -150,7 +150,7 @@
       </li>
       
       <li>
-        <a href="/movies">
+        <a href="/">
           
           <i class="fas fa-film" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -159,7 +159,7 @@
       </li>
       
       <li>
-        <a href="/books">
+        <a href="/">
           
           <i class="fas fa-book" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -168,7 +168,7 @@
       </li>
       
       <li>
-        <a href="/galleries">
+        <a href="/">
           
           <i class="fas fa-image" style="margin-top: -20px; zoom: 0.6;"></i>
           
@@ -296,7 +296,7 @@
               
                 <li>
 
-                  <a href="/musics " style="margin-left:75px">
+                  <a href="/ " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-music" style="position: absolute;left:50px" ></i>
 			      
@@ -306,7 +306,7 @@
               
                 <li>
 
-                  <a href="/movies " style="margin-left:75px">
+                  <a href="/ " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-film" style="position: absolute;left:50px" ></i>
 			      
@@ -316,7 +316,7 @@
               
                 <li>
 
-                  <a href="/books " style="margin-left:75px">
+                  <a href="/ " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-book" style="position: absolute;left:50px" ></i>
 			      
@@ -326,7 +326,7 @@
               
                 <li>
 
-                  <a href="/galleries " style="margin-left:75px">
+                  <a href="/ " style="margin-left:75px">
 				  
 				   <i class="fa fas fa-image" style="position: absolute;left:50px" ></i>
 			      
@@ -476,6 +476,15 @@
                     </span>
                 </a>
                 
+                
+                <a href="/tags/javascript/" title="javascript: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="javascript" style="background-color: #F5EEF8;">javascript
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
             </div>
         </div>
     </div>
@@ -500,7 +509,7 @@
 <script type="text/javascript">
     
 
-    $('#tag-wordcloud').jQCloud([{"text":"java","weight":2,"link":"/tags/java/"}], {
+    $('#tag-wordcloud').jQCloud([{"text":"java","weight":2,"link":"/tags/java/"},{"text":"javascript","weight":1,"link":"/tags/javascript/"}], {
         autoResize: true
     });
 </script>
@@ -650,14 +659,19 @@ $(function () {
     </a>
 </div>
 
-
+      <script type="text/javascript">
+    var OriginTitile=document.title,st;
+    document.addEventListener("visibilitychange",function(){
+        document.hidden?(document.title="ヽ(●-`Д´-)ノ你要玩捉迷藏嘛",clearTimeout(st)):(document.title="(Ő∀Ő3)ノ好哦！",st=setTimeout(function(){document.title=OriginTitile},3e3))   
+ })
+</script>
     <script src="/libs/materialize/materialize.min.js"></script>
     <script src="/libs/masonry/masonry.pkgd.min.js"></script>
     <script src="/libs/aos/aos.js"></script>
     <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
     <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
     <script src="/js/matery.js"></script>
-
+    
     <!-- Baidu Analytics -->
 
     <!-- Baidu Push -->
@@ -712,7 +726,9 @@ $(function () {
 	   }
 	   </script>
    
-   
+  
+
+
    
  
 </body>
