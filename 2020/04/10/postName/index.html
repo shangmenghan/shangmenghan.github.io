@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="JSTL标签库, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="专注生活，热爱生活，分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java | 海绵宝宝有个梦</title>
+    <title>JSTL标签库 | 海绵宝宝有个梦</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -417,12 +417,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java</h1>
+                    <h1 class="description center-align post-title">JSTL标签库</h1>
                 </div>
             </div>
         </div>
@@ -539,8 +539,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
+                            <a href="/tags/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/">
+                                <span class="chip bg-color">JSTL标签库</span>
                             </a>
                         
                     </div>
@@ -580,8 +580,208 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出口被松开初步设计擦拭库存卡删除插卡式缴纳存款基本上查看坚实基础</p>
-<script>
+                <h1 id="JSTL标签库的使用步骤"><a href="#JSTL标签库的使用步骤" class="headerlink" title="JSTL标签库的使用步骤"></a>JSTL标签库的使用步骤</h1><h2 id="1-先导入-JSTL-jar包"><a href="#1-先导入-JSTL-jar包" class="headerlink" title="1.先导入 JSTL jar包"></a>1.先导入 JSTL jar包</h2><p>​     taglibs-standard-impl-1.2.1.jar </p>
+<p>​     taglibs-standard-spec-1.2.1.jar</p>
+<h2 id="2-使用taglib指令引入标签库"><a href="#2-使用taglib指令引入标签库" class="headerlink" title="2.使用taglib指令引入标签库"></a>2.使用taglib指令引入标签库</h2><pre><code>&lt;%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %&gt;</code></pre><h2 id="core核心库使用："><a href="#core核心库使用：" class="headerlink" title="core核心库使用："></a>core核心库使用：</h2><h3 id="i-‘-lt-c-set-gt-’（使用很少）"><a href="#i-‘-lt-c-set-gt-’（使用很少）" class="headerlink" title="i.  ‘<c:set>’（使用很少）"></a>i.  ‘&lt;c:set&gt;’（使用很少）</h3><p>作用：set 标签可以往域中保存数据</p>
+<pre><code>&lt;%--
+i.&lt;c:set /&gt; 
+      作用：set 标签可以往域中保存数据 
+      域对象.setAttribute(key,value); 
+      scope 属性设置保存到哪个域 
+      page 表示 PageContext 域（默认值）
+      request 表示 Request 域
+      session 表示 Session 域 
+      application 表示 ServletContext 域 
+      var 属性设置 key 是多少
+      value 属性设置值 
+  --%&gt; 
+  保存之前：${ sessionScope.abc } &lt;br&gt; 
+  &lt;c:set scope="session" var="abc" value="abcValue"/&gt;      保存之后：${ sessionScope.abc } &lt;br&gt;</code></pre><h3 id="ii-lt-c-if-gt"><a href="#ii-lt-c-if-gt" class="headerlink" title="ii.  <c:if/>"></a>ii.  <code>&lt;c:if/&gt;</code></h3><p>​       if标签用来做if判断</p>
+<pre><code>&lt;%--
+       ii.&lt;c:if /&gt;
+          if 标签用来做 if 判断。 
+          test 属性表示判断的条件（使用 EL 表达式输出） 
+--%&gt;
+&lt;c:if test="${ 12 == 12 }"&gt;
+        &lt;h1&gt;12 等于 12&lt;/h1&gt;
+&lt;/c:if&gt;
+&lt;c:if test="${ 12 != 12 }"&gt;
+        &lt;h1&gt;12 不等于 12&lt;/h1&gt;
+&lt;/c:if&gt;</code></pre><h3 id="iii-lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签"><a href="#iii-lt-c-choose-gt-lt-c-when-gt-lt-c-otherwise-gt-标签" class="headerlink" title="iii.<c:choose> <c:when> <c:otherwise>标签"></a>iii.<code>&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;</code>标签</h3><pre><code>&lt;%-- 
+iii.&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签
+作用：多路判断。跟 switch ... case .... default 非常接近 
+
+choose 标签开始选择判断 
+when 标签表示每一种判断情况 
+      test 属性表示当前这种判断情况的值 
+otherwise 标签表示剩下的情况 
+&lt;c:choose&gt; &lt;c:when&gt; &lt;c:otherwise&gt;标签使用时需要注意的点：     1、标签里不能使用 html 注释，要使用 jsp 注释 
+    2、when 标签的父标签一定要是 choose 标签 
+--%&gt; 
+&lt;% 
+     request.setAttribute("height", 180); 
+%&gt;
+&lt;c:choose&gt; &lt;%-- 这是 html 注释 --%&gt; 
+&lt;c:when test="${ requestScope.height &gt; 190 }"&gt;             &lt;h2&gt;小巨人&lt;/h2&gt; &lt;/c:when&gt; &lt;c:when test="${  requestScope.height &gt; 180 }"&gt;
+&lt;h2&gt;很高&lt;/h2&gt;
+&lt;/c:when&gt; &lt;c:when test="${ requestScope.height &gt; 170 }"&gt;
+&lt;h2&gt;还可以&lt;/h2&gt;
+&lt;/c:when&gt;
+&lt;c:otherwise&gt;
+     &lt;c:choose&gt; 
+     &lt;c:when test="${requestScope.height &gt; 160}"&gt; 
+     &lt;h3&gt;大于 160&lt;/h3&gt; 
+     &lt;/c:when&gt;
+     &lt;c:when test="${requestScope.height &gt; 150}"&gt; 
+     &lt;h3&gt;大于 150&lt;/h3&gt; 
+     &lt;/c:when&gt;
+     &lt;c:when test="${requestScope.height &gt; 140}"&gt;
+     &lt;h3&gt;大于 140&lt;/h3&gt;
+     &lt;/c:when&gt; 
+     &lt;c:otherwise&gt;
+     其他小于 140 
+     &lt;/c:otherwise&gt; 
+     &lt;/c:choose&gt; 
+     &lt;/c:otherwise&gt; 
+     &lt;/c:choose&gt;</code></pre><h3 id="iv-lt-c-forEach-gt"><a href="#iv-lt-c-forEach-gt" class="headerlink" title="iv.<c:forEach />"></a>iv.<code>&lt;c:forEach /&gt;</code></h3><p>作用：遍历输出使用。</p>
+<h4 id="1-遍历-1-到-10，输出"><a href="#1-遍历-1-到-10，输出" class="headerlink" title="1. 遍历 1 到 10，输出"></a><strong>1.</strong> <strong>遍历</strong> <strong>1</strong> <strong>到</strong> 10，输出</h4><pre><code>&lt;%--1.遍历 1 到 10，输出 
+    begin 属性设置开始的索引
+    end 属性设置结束的索引 
+    var 属性表示循环的变量(也是当前正在遍历到的数据) 
+    for (int i = 1; i &lt; 10; i++) 
+    --%&gt; 
+    &lt;table border="1"&gt; 
+    &lt;c:forEach begin="1" end="10" var="i"&gt; 
+    &lt;tr&gt;
+    &lt;td&gt;
+    第${i}行
+    &lt;/td&gt; 
+    &lt;/tr&gt; 
+    &lt;/c:forEach&gt; 
+    &lt;/table&gt;</code></pre><h4 id="2-遍历-Object-数组"><a href="#2-遍历-Object-数组" class="headerlink" title="2. 遍历 Object 数组"></a><strong>2.</strong> <strong>遍历</strong> <strong>Object</strong> <strong>数组</strong></h4><pre><code>&lt;%-- 2.遍历 Object 数组 
+       for (Object item: arr)
+       items 表示遍历的数据源（遍历的集合）
+       var 表示当前遍历到的数据 
+       --%&gt; 
+       &lt;%
+       request.setAttribute("arr", new String[]{"18610541354","18688886666","18699998888"});
+       %&gt;
+       &lt;c:forEach items="${ requestScope.arr }" var="item"&gt; 
+       ${ item } &lt;br&gt; 
+       &lt;/c:forEach&gt;</code></pre><h4 id="3-遍历-Map-集合"><a href="#3-遍历-Map-集合" class="headerlink" title="3. 遍历 Map 集合"></a><strong>3.</strong> <strong>遍历</strong> <strong>Map</strong> <strong>集合</strong></h4><pre><code>&lt;%** 
+
+Map&lt;String,Object&gt; map = **new** HashMap&lt;String, Object&gt;(); 
+
+map.put(**"key1"**, **"value1"**); 
+
+map.put(**"key2"**, **"value2"**); 
+
+map.put(**"key3"**, **"value3"**); 
+
+*//* 
+
+*for ( Map.Entry&lt;String,Object&gt; entry : map.entrySet()) {* 
+
+*//* 
+
+*}* 
+
+request.setAttribute(**"map"**, map); 
+
+**%&gt;**
+
+&lt;**c****:forEach** **items****="****${** requestScope.map **}****"** **var****="entry"**&gt; 
+
+&lt;**h1**&gt;**${**entry.key**}** = **${**entry.value**}**&lt;/**h1**&gt; 
+
+&lt;/**c****:forEach**&gt;</code></pre><h4 id="4-遍历-List-集合-—list-中存放-Student-类，有属性：编号，用户名，密码，年龄，"><a href="#4-遍历-List-集合-—list-中存放-Student-类，有属性：编号，用户名，密码，年龄，" class="headerlink" title="4. 遍历 List 集合**—list** 中存放 Student 类，有属性：编号，用户名，密码，年龄，"></a><strong>4.</strong> <strong>遍历</strong> <strong>List</strong> <strong>集合**</strong>—list** <strong>中存放</strong> <strong>Student</strong> <strong>类，有属性：编号，用户名，密码，年龄，</strong></h4><p><strong>电话信息</strong></p>
+<pre><code>Student 类： 
+
+**public class** Student { 
+
+*//4.**编号，用户名，密码，年龄，电话信息* 
+
+**private** Integer **id**; 
+
+**private** String **username**; 
+
+**private** String **password**; 
+
+**private** Integer **age**; 
+
+**private** String **phone**;</code></pre><pre><code>&lt;%--4.**遍历* *List* *集合**---list* *中存放* *Student* *类，有属性：编号，用户名，密码，年龄，电话信息**--%&gt;* 
+
+**&lt;%** 
+
+List&lt;Student&gt; studentList = **new** ArrayList&lt;Student&gt;(); 
+
+**for** (**int** i = 1; i &lt;= 10; i++) { 
+
+studentList.add(**new** Student(i,**"username"**+i ,**"pass"**+i,18+i,**"phone"**+i)); 
+
+}
+
+request.setAttribute(**"stus"**, studentList); 
+
+**%&gt;**
+
+&lt;table&gt; 
+
+&lt;**tr**&gt;
+
+&lt;**th**&gt;编号&lt;/**th**&gt; 
+
+&lt;**th**&gt;用户名&lt;/**th**&gt; 
+
+&lt;**th**&gt;密码&lt;/**th**&gt; 
+
+&lt;**th**&gt;年龄&lt;/**th**&gt; 
+
+&lt;**th**&gt;电话&lt;/**th**&gt; 
+
+&lt;**th**&gt;操作&lt;/**th**&gt; 
+
+&lt;/**tr**&gt; 
+
+*&lt;%--*
+
+*items* *表示遍历的集合* 
+
+*var* *表示遍历到的数据* 
+
+*begin* *表示遍历的开始索引值* 
+
+*end* *表示结束的索引值* 
+
+*step* *属性表示遍历的步长值* 
+
+*varStatus* *属性表示当前遍历到的数据的状态* 
+
+*for**（**int i = 1; i &lt; 10; i+=2**）* 
+
+*--%&gt;* 
+
+&lt;**c****:forEach** **begin****="2"** **end****="7"** **step****="2"** **varStatus****="status"** **items****="****${**requestScope.stus**}****"** **var****="stu"**&gt; 
+
+&lt;**tr**&gt;
+
+&lt;**td**&gt;**${**stu.id**}**&lt;/**td**&gt; 
+
+&lt;**td**&gt;**${**stu.username**}**&lt;/**td**&gt; 
+
+&lt;**td**&gt;**${**stu.password**}**&lt;/**td**&gt; 
+
+&lt;**td**&gt;**${**stu.age**}**&lt;/**td**&gt; 
+
+&lt;**td**&gt;**${**stu.phone**}**&lt;/**td**&gt; 
+
+&lt;**td**&gt;**${**status.step**}**&lt;/**td**&gt; 
+
+&lt;/**tr**&gt; 
+
+&lt;/**c****:forEach**&gt; 
+
+&lt;/**table**&gt;</code></pre><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -662,8 +862,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
+                                <a href="/tags/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/">
+                                    <span class="chip bg-color">JSTL标签库</span>
                                 </a>
                             
                         </div>
@@ -1094,29 +1294,32 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/10/javascript/">
+                <a href="/2020/04/10/postName/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="javascript">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="JSTL标签库">
                         
-                        <span class="card-title">javascript</span>
+                        <span class="card-title">JSTL标签库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出
+                            JSTL标签库的使用步骤1.先导入 JSTL jar包​     taglibs-standard-impl-1.2.1.jar 
+​     taglibs-standard-spec-1.2.1.jar
+2.使用taglib指令引入标签
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1129,11 +1332,12 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/">
+                        <span class="chip bg-color">JSTL标签库</span>
                     </a>
                     
                 </div>
@@ -1144,16 +1348,16 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/10/postName/">
+                <a href="/2020/04/10/javascript/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="javascript">
                         
-                        <span class="card-title">Java</span>
+                        <span class="card-title">javascript</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1178,12 +1382,11 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
                 </div>

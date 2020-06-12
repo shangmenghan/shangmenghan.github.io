@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://shangmenghan.github.io/"/>
-  <updated>2020-06-11T08:20:47.437Z</updated>
+  <updated>2020-06-12T07:04:38.624Z</updated>
   <id>http://shangmenghan.github.io/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java</title>
-    <link href="http://shangmenghan.github.io/2020/04/10/hello-world/"/>
-    <id>http://shangmenghan.github.io/2020/04/10/hello-world/</id>
+    <title>JSTL标签库</title>
+    <link href="http://shangmenghan.github.io/2020/04/10/postName/"/>
+    <id>http://shangmenghan.github.io/2020/04/10/postName/</id>
     <published>2020-04-09T20:13:36.000Z</published>
-    <updated>2020-06-11T08:20:47.437Z</updated>
+    <updated>2020-06-12T07:04:38.624Z</updated>
     
     <summary type="html">
     
@@ -29,7 +29,7 @@
       
         
         
-          &lt;p&gt;三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定
+          &lt;h1 id=&quot;JSTL标签库的使用步骤&quot;&gt;&lt;a href=&quot;#JSTL标签库的使用步骤&quot; class=&quot;headerlink&quot; title=&quot;JSTL标签库的使用步骤&quot;&gt;&lt;/a&gt;JSTL标签库的使用步骤&lt;/h1&gt;&lt;h2 id=&quot;1-先导入-JSTL-jar包&quot;&gt;&lt;a
         
       
     
@@ -39,7 +39,7 @@
       <category term="blog" scheme="http://shangmenghan.github.io/categories/blog/"/>
     
     
-      <category term="java" scheme="http://shangmenghan.github.io/tags/java/"/>
+      <category term="JSTL标签库" scheme="http://shangmenghan.github.io/tags/JSTL%E6%A0%87%E7%AD%BE%E5%BA%93/"/>
     
   </entry>
   
@@ -72,10 +72,10 @@
   
   <entry>
     <title>Java</title>
-    <link href="http://shangmenghan.github.io/2020/04/10/postName/"/>
-    <id>http://shangmenghan.github.io/2020/04/10/postName/</id>
+    <link href="http://shangmenghan.github.io/2020/04/10/hello-world/"/>
+    <id>http://shangmenghan.github.io/2020/04/10/hello-world/</id>
     <published>2020-04-09T20:13:36.000Z</published>
-    <updated>2020-06-11T08:20:44.982Z</updated>
+    <updated>2020-06-11T08:20:47.437Z</updated>
     
     <summary type="html">
     
