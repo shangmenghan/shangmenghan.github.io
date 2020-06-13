@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Java, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="hexo相关问题解决, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="专注生活，热爱生活，分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Java | 海绵宝宝有个梦</title>
+    <title>hexo相关问题解决 | 海绵宝宝有个梦</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -417,12 +417,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/9.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Java</h1>
+                    <h1 class="description center-align post-title">hexo相关问题解决</h1>
                 </div>
             </div>
         </div>
@@ -539,23 +539,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/java/">
-                                <span class="chip bg-color">java</span>
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/blog/" class="post-category">
-                                blog
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -564,7 +555,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-10
+                    2020-06-13
                 </div>
                 
 
@@ -580,7 +571,20 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出口被松开初步设计擦拭库存卡删除插卡式缴纳存款基本上查看坚实基础</p>
+                <h1 id="hexo相关问题解决"><a href="#hexo相关问题解决" class="headerlink" title="hexo相关问题解决"></a>hexo相关问题解决</h1><h2 id="博客插入图片（hexo使用markdown图片无法显示问题）"><a href="#博客插入图片（hexo使用markdown图片无法显示问题）" class="headerlink" title="博客插入图片（hexo使用markdown图片无法显示问题）"></a>博客插入图片（hexo使用markdown图片无法显示问题）</h2><p><code>hexo</code>默认无法自动处理文章插入本地图片，需要通过扩展插件支持</p>
+<p>安装<a href="https://github.com/7ym0n/hexo-asset-image.git" target="_blank" rel="noopener">hexo-asset-image</a>，运行<code>hexo n "xxxx"</code>来生成md博文时，<code>/source/_posts</code>文件夹内除了xxxx.md文件还有一个同名的文件夹，把图片放入该文件夹。</p>
+<p>使用<code>![xxx](xxx/xxx.png)</code>直接插入图片即可。</p>
+<p>问题</p>
+<p>由于hexo3版本后对很多插件支持有问题，<a href="https://github.com/CodeFalling/hexo-asset-image.git" target="_blank" rel="noopener">hexo-asset-image</a>插件在处理<code>data.permalink</code>链接时出现路径错误，把年月去掉了，导致最后生成的路径为<code>%d/xxx/xxx</code>需要对其做兼容处理。通过判断当前版本是否等于<code>3</code>的版本做不同的路径分割。</p>
+<p>在代码中加入：</p>
+<pre><code>var version = String(hexo.version).split('.');</code></pre><p>修改<code>date.permalink</code>处理：</p>
+<pre><code>var link = data.permalink;  
+if(version.length &gt; 0 &amp;&amp; Number(version[0]) == 3) 
+    var beginPos = getPosition(link, '/', 1) + 1; 
+else 
+    var beginPos = getPosition(link, '/', 3) + 1;</code></pre><p>重新生成静态文件即可正确显示。</p>
+<p>可直接安装已经修改过得插件<code>npm install https://github.com/7ym0n/hexo-asset-image --sa</code>。</p>
+<p>作者：菜鸡_快递到了<br>链接：<a href="https://www.jianshu.com/p/3db6a61d3782" target="_blank" rel="noopener">https://www.jianshu.com/p/3db6a61d3782</a><br>来源：简书</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -624,7 +628,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shangmenghan.github.io/2020/04/10/hello-world/">http://shangmenghan.github.io/2020/04/10/hello-world/</a>
+                    <a href="http://shangmenghan.github.io/2020/06/13/mehe/">http://shangmenghan.github.io/2020/06/13/mehe/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -662,8 +666,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/java/">
-                                    <span class="chip bg-color">java</span>
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -1094,46 +1098,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/04/10/javascript/">
+                <a href="/2020/06/13/mehe/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="javascript">
+                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="hexo相关问题解决">
                         
-                        <span class="card-title">javascript</span>
+                        <span class="card-title">hexo相关问题解决</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出
+                            hexo相关问题解决博客插入图片（hexo使用markdown图片无法显示问题）hexo默认无法自动处理文章插入本地图片，需要通过扩展插件支持
+安装hexo-asset-image，运行hexo n "xxxx"来生成md博文时，/sour
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            钱恒
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
                 </div>
@@ -1144,10 +1147,10 @@
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/04/10/hello-world/">
+                <a href="/2020/06/13/java/">
                     <div class="card-image">
                         
                         
@@ -1159,12 +1162,15 @@
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出
+                            开发中。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。。
+
+        document.querySelectorAll('.github-emoji')
+        
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
                             </span>
                         <span class="publish-author">
                             
@@ -1178,7 +1184,6 @@
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
@@ -1536,6 +1541,6 @@ $(function () {
 
    
  
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":900},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600,"hoffset":500,"voffset":0},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="javascript, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="MySQL启动问题解决, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="专注生活，热爱生活，分享知识">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>javascript | 海绵宝宝有个梦</title>
+    <title>MySQL启动问题解决 | 海绵宝宝有个梦</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -417,12 +417,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">javascript</h1>
+                    <h1 class="description center-align post-title">MySQL启动问题解决</h1>
                 </div>
             </div>
         </div>
@@ -539,23 +539,14 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/javascript/">
-                                <span class="chip bg-color">javascript</span>
+                            <a href="/tags/MySQL/">
+                                <span class="chip bg-color">MySQL</span>
                             </a>
                         
                     </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/blog/" class="post-category">
-                                blog
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -564,7 +555,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-04-10
+                    2020-06-13
                 </div>
                 
 
@@ -580,7 +571,17 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出口被松开初步设计擦拭库存卡删除插卡式缴纳存款基本上查看坚实基础</p>
+                <h1 id="MySQL启动错误相关解决："><a href="#MySQL启动错误相关解决：" class="headerlink" title="MySQL启动错误相关解决："></a>MySQL启动错误相关解决：</h1><h2 id="MySQL错误：2003-Can’t-connect-to-MySQL-server-on-‘localhost’-10061-“unknown-error”"><a href="#MySQL错误：2003-Can’t-connect-to-MySQL-server-on-‘localhost’-10061-“unknown-error”" class="headerlink" title="MySQL错误：2003-Can’t connect to MySQL server on ‘localhost’(10061 “unknown error”)"></a>MySQL错误：2003-Can’t connect to MySQL server on ‘localhost’(10061 “unknown error”)</h2><h3 id="方案一："><a href="#方案一：" class="headerlink" title="方案一："></a>方案一：</h3><p>​       开启本地的MySQL服务，这样很容易就可以解决这个问题了。如果这样无法解决问题您可以再尝试一下第二种解决方案。</p>
+<p><img src="/2020/06/13/MySQL/1.jpg" alt="MySQL"></p>
+<h3 id="方案二："><a href="#方案二：" class="headerlink" title="方案二："></a>方案二：</h3><p>第二种解决方案是后来想到会不会是因为每一次卸载的时候没有彻底卸载干净，然后就彻彻底底卸载干净了再重装，然后就成功了！因为上一次安装的数据库在C盘的配置文件还存在，对后面安装时的配置文件产生了冲突，所有导致了这个问题。话不多说，直接上干货！</p>
+<p>　　1）删除程序。进入控制面板-&gt;在程序和功能选项卡中找到MySQL，右键卸载。</p>
+<p>　　2）删除安装文件夹下的所有内容。找到MySQL的安装路径，然后删除路径下所有文件。</p>
+<p>　　3）删除注册表。Windows+R打开运行命令框，输入regedit回车，删除以下3个地方的注册文件：</p>
+<p>　　　　HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\Eventlog\Application\MySQL 目录删除 </p>
+<p>　　　　HKEY_LOCAL_MACHINE\SYSTEM\ControlSet002\Services\Eventlog\Application\MySQL 目录删除 </p>
+<p>　　　　HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Eventlog\Application\MySQL 目录删除</p>
+<p>　　4）最重要的一点（我就是由于没有删除此文件而导致出错的）：进入C盘，选中查看-&gt;勾选“隐藏的项目”，然后下面就出来隐藏目录（ProgramData）了，进入其中，删除MySQL文件夹。</p>
+<p>　　到此，你需要做的就只是重装一遍就行了！　　<br>————————————————<br>版权声明：本文为CSDN博主「努力的凹凸曼」的原创文章，遵循CC 4.0 BY-SA版权协议，转载请附上原文出处链接及本声明。<br>原文链接：<a href="https://blog.csdn.net/py_123456/article/details/79694786" target="_blank" rel="noopener">https://blog.csdn.net/py_123456/article/details/79694786</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -624,7 +625,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://shangmenghan.github.io/2020/04/10/javascript/">http://shangmenghan.github.io/2020/04/10/javascript/</a>
+                    <a href="http://shangmenghan.github.io/2020/06/13/MySQL/">http://shangmenghan.github.io/2020/06/13/MySQL/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -662,8 +663,8 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/javascript/">
-                                    <span class="chip bg-color">javascript</span>
+                                <a href="/tags/MySQL/">
+                                    <span class="chip bg-color">MySQL</span>
                                 </a>
                             
                         </div>
@@ -1098,7 +1099,59 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/12/postname/">
+                <a href="/2020/06/13/javascript/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="javascript">
+                        
+                        <span class="card-title">javascript</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-13
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blog/" class="post-category">
+                                    blog
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2020/06/12/Javaweb/">
                     <div class="card-image">
                         
                         
@@ -1118,9 +1171,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-12
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1138,55 +1191,6 @@
                     
                     <a href="/tags/Javaweb/">
                         <span class="chip bg-color">Javaweb</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/04/10/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java">
-                        
-                        <span class="card-title">Java</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            三岔路口静安寺内存卡那时刻才看见阿萨可参考是查看使得大V圣诞节开始的VB的深V上帝和被开始大V开始大V开始的局部可机电设备参考价肯定 声明处蓝色精粹你看三岔口济南市科技才能看见爱上那几款四年才看见爱上内存空间按开始从哪开始从as竞猜卡说不出
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-04-10
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
                     </a>
                     
                 </div>
@@ -1539,6 +1543,6 @@ $(function () {
 
    
  
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":150,"height":900},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":300,"height":600,"hoffset":500,"voffset":0},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 
 </html>
