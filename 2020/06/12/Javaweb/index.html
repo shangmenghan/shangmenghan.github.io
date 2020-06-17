@@ -571,14 +571,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-12
+                    2020-06-15
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.4k
                 </div>
                 
 
@@ -811,7 +811,15 @@ request.setAttribute(**"stus"**, studentList);
 
 &lt;/**c****:forEach**&gt; 
 
-&lt;/**table**&gt;</code></pre><h2 id="文件的上传"><a href="#文件的上传" class="headerlink" title="文件的上传"></a>文件的上传</h2><h2 id="文件的下载"><a href="#文件的下载" class="headerlink" title="文件的下载"></a>文件的下载</h2><script>
+&lt;/**table**&gt;</code></pre><h2 id="文件的上传"><a href="#文件的上传" class="headerlink" title="文件的上传"></a>文件的上传</h2><p>文件的上传和下载，是非常常见的功能，很多的系统中，或者软件中经常使用文件的上传和下载。</p>
+<h2 id="1-文件的上传介绍"><a href="#1-文件的上传介绍" class="headerlink" title="1.文件的上传介绍"></a>1.文件的上传介绍</h2><p>1.要有一个form标签，method=post请求</p>
+<p>2.form标签的encType属性值必须为multipart/form-data值</p>
+<p>3.在form标签中只用input type=file添加上传的文件</p>
+<p>4.编写服务器代码（servlet）接收，处理上传数据</p>
+<p>encType=multipart/form-data 表示提交的数据，以多段的形式进行拼接。然后以二进制流的形式发送给服务器</p>
+<img src="/2020/06/12/Javaweb/1.PNG" alt="Javawe" style="zoom:200%;">
+
+<h2 id="文件的下载"><a href="#文件的下载" class="headerlink" title="文件的下载"></a>文件的下载</h2><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1566,7 +1574,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">2.2k</span>&nbsp;字
+                class="white-color">2.4k</span>&nbsp;字
             
             
             
