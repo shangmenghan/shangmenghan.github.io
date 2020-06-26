@@ -571,21 +571,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-17
+                    2020-06-20
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    3.2k
+                    4.1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    14 分
+                    18 分
                 </div>
                 
 
@@ -963,7 +963,68 @@ response.setHeader("Content-Disposition", str); }</code></pre><h2 id="Cookie"><a
 <p>json 是一种轻量级的数据交换格式。 </p>
 <p>轻量级指的是跟 xml 做比较。 </p>
 <p>数据交换指的是客户端和服务器之间业务数据的传递格式</p>
-<h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><script>
+<h3 id="Json在JavaScript中的使用"><a href="#Json在JavaScript中的使用" class="headerlink" title="Json在JavaScript中的使用"></a>Json在JavaScript中的使用</h3><p>json 是由键值对组成，并且由花括号（大括号）包围。每个键由引号引起来，键和值之间使用冒号进行分隔， </p>
+<p>多组键值对之间进行逗号进行分隔。 </p>
+<p>json 定义示例：</p>
+<pre><code>var jsonObj = {
+"key1":12, 
+"key2":"abc", 
+"key3":true, 
+"key4":[11,"arr",false],
+"key5":{ 
+"key5_1" : 551, "key5_2" : "key5_2_value" 
+},
+"key6":[{ "key6_1_1":6611, "key6_1_2":"key6_1_2_value"
+},{"key6_2_1":6621, "key6_2_2":"key6_2_2_value" }] 
+};</code></pre><h3 id="json-的访问"><a href="#json-的访问" class="headerlink" title="json 的访问"></a>json 的访问</h3><p>json 本身是一个对象。 </p>
+<p>json 中的 key 我们可以理解为是对象中的一个属性。 </p>
+<p>json 中的 key 访问就跟访问对象的属性一样： json 对象.key </p>
+<p>json 访问示例：</p>
+<pre><code>alert(typeof(jsonObj));// object json 就是一个对象 alert(jsonObj.key1); //12 alert(jsonObj.key2); // abc alert(jsonObj.key3); // true alert(jsonObj.key4);// 得到数组[11,"arr",false] // json 中 数组值的遍历 for(var i = 0; i &lt; jsonObj.key4.length; i++) { alert(jsonObj.key4[i]); }alert(jsonObj.key5.key5_1);//551 alert(jsonObj.key5.key5_2);//key5_2_value alert( jsonObj.key6 );// 得到 json 数组 // 取出来每一个元素都是 json 对象 var jsonItem = jsonObj.key6[0]; // alert( jsonItem.key6_1_1 ); //6611 alert( jsonItem.key6_1_2 );</code></pre><h3 id="json-的两个常用方法"><a href="#json-的两个常用方法" class="headerlink" title="json 的两个常用方法"></a>json <strong>的两个常用方法</strong></h3><p>json 的存在有两种形式。 </p>
+<p>一种是：对象的形式存在，我们叫它 json 对象。 </p>
+<p>一种是：字符串的形式存在，我们叫它 json 字符串。 </p>
+<p>一般我们要操作 json 中的数据的时候，需要 json 对象的格式。 </p>
+<p>一般我们要在客户端和服务器之间进行数据交换的时候，使用 json 字符串。 </p>
+<p>JSON.stringify() </p>
+<p>把 json 对象转换成为 json 字符串 </p>
+<p>JSON.parse() </p>
+<p>把 json 字符串转换成为 json 对象示例代码： </p>
+<pre><code>// 把 json 对象转换成为 json 字符串 
+var jsonObjString = JSON.stringify(jsonObj); // 特别像 Java 中对象的 toString 
+alert(jsonObjString) // 把 json 字符串。转换成为 json 对象 
+var jsonObj2 = JSON.parse(jsonObjString); 
+alert(jsonObj2.key1);// 12 alert(jsonObj2.key2);// abc</code></pre><h3 id="JSON-在-java-中的使用"><a href="#JSON-在-java-中的使用" class="headerlink" title="JSON 在 java 中的使用"></a>JSON <strong>在</strong> <strong>java</strong> <strong>中的使用</strong></h3><h4 id="javaBean-和-json的互转"><a href="#javaBean-和-json的互转" class="headerlink" title="javaBean 和 json的互转"></a>javaBean 和 json的互转</h4><pre><code>@Test 
+public void test1(){
+Person person = new Person(1,"国哥好帅!"); // 创建 Gson 对象实例 
+Gson gson = new Gson(); // toJson 方法可以把 java 对象转换成为 json 字符串 String personJsonString = gson.toJson(person);
+System.out.println(personJsonString); // fromJson 把 json 字符串转换回 Java 对象 
+// 第一个参数是 json 字符串 
+// 第二个参数是转换回去的 Java 对象类型 
+Person person1 = gson.fromJson(personJsonString, Person.class); S</code></pre><h4 id="List-和-json-的互转"><a href="#List-和-json-的互转" class="headerlink" title="List 和 json 的互转"></a>List 和 <strong>json</strong> 的互转</h4><pre><code>// 1.2.2、List 和 json 的互转 
+@Test public void test2() { 
+List&lt;Person&gt; personList = new ArrayList&lt;&gt;();
+personList.add(new Person(1, "国哥"));
+personList.add(new Person(2, "康师傅")); 
+Gson gson = new Gson(); // 把 List 转换为 json 字符串 
+String personListJsonString = gson.toJson(personList);
+System.out.println(personListJsonString);
+List&lt;Person&gt; list = gson.fromJson(personListJsonString, new PersonListType().getType());
+System.out.println(list); Person person = list.get(0); System.out.println(person); }</code></pre><h4 id="map-和-json-的互转"><a href="#map-和-json-的互转" class="headerlink" title="map 和 json 的互转"></a>map <strong>和</strong> json 的互转</h4><pre><code>// 1.2.3、map 和 json 的互转
+@Test public void test3(){
+Map&lt;Integer,Person&gt; personMap = new HashMap&lt;&gt;();
+personMap.put(1, new Person(1, "国哥好帅")); 
+personMap.put(2, new Person(2, "康师傅也好帅")); 
+Gson gson = new Gson(); // 把 map 集合转换成为 json 字符串 
+String personMapJsonString = gson.toJson(personMap); 
+System.out.println(personMapJsonString); 
+// Map&lt;Integer,Person&gt; personMap2 = gson.fromJson(personMapJsonString, new PersonMapType().getType()); Map&lt;Integer,Person&gt; personMap2 = gson.fromJson(personMapJsonString, new TypeToken&lt;HashMap&lt;Integer,Person&gt;&gt;(){}.getType()); 
+System.out.println(personMap2); 
+Person p = personMap2.get(1); System.out.println(p); }</code></pre><h2 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h2><h3 id="2-1、什么是-AJAX-请求"><a href="#2-1、什么是-AJAX-请求" class="headerlink" title="2.1、什么是 AJAX 请求"></a>2.1、什么是 <strong>AJAX</strong> <strong>请求</strong></h3><p>AJAX 即Asynchronous    JavascriptA<em>**nd</em> **XML（异步 JavaScript 和 XML），是指一种创建交互式网页应用的网页开发 </p>
+<p>技术。</p>
+<p>ajax 是一种浏览器通过 js 异步发起请求，局部更新页面的技术。 </p>
+<p>Ajax 请求的局部更新，浏览器地址栏不会发生变化 </p>
+<p>局部更新不会舍弃原来页面的内容</p>
+<h3 id="2-2、原生AJAX请求的示例："><a href="#2-2、原生AJAX请求的示例：" class="headerlink" title="2.2、原生AJAX请求的示例："></a>2.2、原生AJAX请求的示例：</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1717,7 +1778,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.2k</span>&nbsp;字
+                class="white-color">5k</span>&nbsp;字
             
             
             
