@@ -571,21 +571,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-26
+                    2020-07-06
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    201
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    5 分
                 </div>
                 
 
@@ -626,6 +626,133 @@
 <p>强制类型转换：自动类型提升运算的逆运算</p>
 <p>1.需要使用强转符:()</p>
 <p>2.注意点：强制类型转换，可能导致精度损失。</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>1.数组（Array），是多个相同类型的数据按一定顺序排列的集合，并使用一个名字命名，并通过编号的方式进行统一管理。</p>
+<ol start="2">
+<li>数组常见概念：</li>
+</ol>
+<p>​             数组名</p>
+<p>​             下标</p>
+<p>​              元素</p>
+<p>​              数组的长度</p>
+<p>3.数组特点：1）数组是有序排列的</p>
+<p>​                      2）  数组属于引用数据类型的变量，数组的元素既可以是基本数据类型，也可以是引用数据类型。</p>
+<p>​                      3）创建数组对象会在内存中开辟出一块连续的空间</p>
+<p>​                       4）数组的长度一旦确定就不能修改</p>
+<p>4.一维数组的使用：</p>
+<p>​            1.一维数组的声明和初始化</p>
+<p>​            2.如何调用数组的指定位置的元素</p>
+<p>​            3.如何获取数组的长度</p>
+<p>​             4.如何遍历数组</p>
+<p>​             5.数组元素的默认初始化</p>
+<p>​             6.数组内存的解析</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//静态初始化：</span>
+<span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token number">11</span><span class="token punctuation">,</span><span class="token number">22</span><span class="token punctuation">,</span><span class="token number">33</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//动态初始化：</span>
+String<span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//数组一旦初始化完成。其长度就确定了。</span>
+<span class="token comment" spellcheck="true">//如何调用数组的指定位置的元素</span>
+a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//charAt(0) 张</span>
+a<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">"张三"</span><span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//如何获取数组的长度</span>
+a<span class="token punctuation">.</span>length<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true">//如何遍历数组</span>
+<span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i<span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;=</span>a<span class="token punctuation">.</span>length<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment" spellcheck="true">//数组元素的默认初始化</span>
+    <span class="token comment" spellcheck="true">//    >数组元素是整型：0</span>
+    <span class="token comment" spellcheck="true">//    >数组元素是浮点型 ：0.0</span>
+    <span class="token comment" spellcheck="true">//    >数组元素是char型:0或‘\u0000’,而非’0‘</span>
+    <span class="token comment" spellcheck="true">//    >数组元素是boolean型：false</span>
+    <span class="token comment" spellcheck="true">//    >数组元素是引用数据类型：null</span></code></pre>
+<p>数组中涉及的常见算法</p>
+<p>1.数组元素的赋值（杨辉三角，回形数等）</p>
+<p>2.求数值型数组中元素的最大值，最小值，平均数，总和</p>
+<p>3.数组的赋值，反转，查找（线性查找，二分法查找）</p>
+<p>4.数组元素的排序算法</p>
+<h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><p>一。java面向对象学习的三条主线</p>
+<p>1.java类及类的成员：属性，方法，构造器，代码块，内部类</p>
+<p>2.面向对象的三大特性：封装，继承，多态（抽象性）</p>
+<p>3.其他关键字：this，super，static，static，final，avstract，interface，package，import</p>
+<p>类和对象是面向对象的核心概念</p>
+<p>类是指一类事物的描述，是抽象的，概念上的定义</p>
+<p>对象是实际存在的该事物的每个个体，因而也被称为实例</p>
+<p>面向对象的重点是类的设计</p>
+<p>设计类：就是设计类的成员。</p>
+<p>​             属性=成员变量=field = 域，字段</p>
+<p>​             方法=成员=函数=method</p>
+<p>对象的内存分析</p>
+<p><img src="/2020/06/13/java/15.PNG" alt="对象的内存分析"></p>
+<h2 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h2><p>类的结构之三：构造器（或构造方法，constructor的使用）</p>
+<p>​      一.构造器的作用</p>
+<p>​                1. 创建对象</p>
+<p>​                 2.初始化对象的属性</p>
+<p>​                 </p>
+<p>​      二,说明</p>
+<p>​       1.如果没有显示定义类的构造器的话，则系统默认提供一个空参构造器</p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//创建的对象：new+构造器</span>
+Person person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>​        2.定义构造器的格式，权限修饰符 类名（形参列表）{ }</p>
+<p>​        </p>
+<pre class=" language-java"><code class="language-java">
+String name<span class="token punctuation">;</span>
+<span class="token keyword">public</span> <span class="token function">Person</span><span class="token punctuation">(</span>String n<span class="token punctuation">)</span><span class="token punctuation">{</span>
+         name<span class="token operator">=</span>n<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+
+Person person <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">"Tom"</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<p>3.一个类中定义多个构造器，彼此构成重载；</p>
+<p>4.一旦我们显示定义了类的构造器，系统不再提供默认的空参构造器；</p>
+<p>5.一个类中至少有一个构造器</p>
+<h2 id="关键字Static"><a href="#关键字Static" class="headerlink" title="关键字Static"></a>关键字Static</h2><p>1.static：静态的</p>
+<p>2.static可以用来修饰：属性，方法，代码块，内部类</p>
+<p>3.使用static修饰属性：静态变量（或类变量）</p>
+<p>​                                     属性：按是否使用static修饰，又分为：静态属性vs非静态属性（实例变量）</p>
+<p>​                            实例变量：我们创建的类的多个对象，每个对象都独立拥有一套类中的非静态属性，当修改其中的一个对象的非静态属性时，不会导致其他对象中同样的属性值的修改；</p>
+<p>​                              静态变量：我们创建了类的多个对象，多个对象共享同一个静态变量时，会导致其他对象调用此静态变量时，是修改过了的。</p>
+<p>​                  static修饰属性的其他说明：</p>
+<p>​                                   静态变量随着类的加载而加载</p>
+<p>​                                静态变量       非静态变量 </p>
+<p>​                      类               Y                     N</p>
+<p>​                    对象           Y                     Y</p>
+<p>​                                   静态变量的加载早于对象的创建</p>
+<p>​                                   由于类只加载一次，则静态变量在内存中也只会存在一份，存在方法区的静态域中</p>
+<p>​         静态属性举例：System.out  Math.PI</p>
+<p>类变量实例变量内存解析</p>
+<p><img src="/2020/06/13/java/14.PNG" alt="类变量vs实例变量"></p>
+<p>4.使用static修饰方法：静态方法</p>
+<ol>
+<li>随着类的加载而加载，可以通过类.静态方法来调 用</li>
+</ol>
+<ol start="2">
+<li><p>​              静态方法       非静态方法</p>
+<p>类               Y                     N</p>
+<p>对象           Y                     Y</p>
+<p>3.静态方法中，只能调用静态的方法和属性</p>
+<p>  非静态方法中： 既可以调用非静态方法和属性，依然可以调用静态的方法和属性</p>
+<pre><code>     3.                          static注意点：
+
+                                 ​       在静态方法内，不能使用this关键字 ，super关键字</code></pre></li>
+</ol>
+<p>​             关于静态方法和静态属性没打架都从生命周期的角度去理解</p>
+<p>6.开发中，如何确定一个属性是否需要声明为static的？</p>
+<blockquote>
+<p>属性是可以被多个对象所共享的，不会随着对象的不同而不同</p>
+</blockquote>
+<blockquote>
+<p>类中的常量通常声明为static</p>
+</blockquote>
+<p>  开发中，如何确定一个方法是否需要声明为static的？</p>
+<blockquote>
+<p>​    操作静态属性的方法，通常设置为static的</p>
+</blockquote>
+<blockquote>
+<p>工具类中的方法，习惯声明为static的，包括Math，Arrays，Collections</p>
+</blockquote>
+<p>​         </p>
+<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><p>IO流的原理及流的分类</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1143,19 +1270,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/13/mehe/">
+                <a href="/2020/06/13/MyBatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="hexo相关问题解决">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MyBatis">
                         
-                        <span class="card-title">hexo相关问题解决</span>
+                        <span class="card-title">MyBatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo相关问题解决​                                                                                                             
+                            开发中                                                                                                                     
                         
                     </div>
                     <div class="publish-info">
@@ -1164,8 +1291,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            钱恒
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/MyBatis/" class="post-category">
+                                    MyBatis
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1173,8 +1304,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/MyBatis/">
+                        <span class="chip bg-color">MyBatis</span>
                     </a>
                     
                 </div>
@@ -1188,13 +1319,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/13/javascript/">
+                <a href="/2020/06/13/javalianxi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="javascript">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="java练习题">
                         
-                        <span class="card-title">javascript</span>
+                        <span class="card-title">java练习题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1211,8 +1342,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
+                            <a href="/categories/java%E7%BB%83%E4%B9%A0%E9%A2%98/" class="post-category">
+                                    java练习题
                                 </a>
                             
                             
@@ -1222,8 +1353,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/javascript/">
-                        <span class="chip bg-color">javascript</span>
+                    <a href="/tags/javas/">
+                        <span class="chip bg-color">javas</span>
                     </a>
                     
                 </div>
@@ -1376,7 +1507,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.7k</span>&nbsp;字
+                class="white-color">21.8k</span>&nbsp;字
             
             
             

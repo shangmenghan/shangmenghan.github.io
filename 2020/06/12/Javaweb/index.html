@@ -571,21 +571,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-06-29
+                    2020-07-04
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    5.1k
+                    5.7k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    22 分
+                    24 分
                 </div>
                 
 
@@ -1097,6 +1097,56 @@ response<span class="token punctuation">.</span><span class="token function">set
 <p>浏览器和session之间关联的技术内幕</p>
 <p>session技术，底层其实是基于cookie技术来实现的</p>
 <p><img src="/2020/06/12/Javaweb/3.png" alt="浏览器和session关联的技术"></p>
+<h2 id="Filter"><a href="#Filter" class="headerlink" title="Filter"></a>Filter</h2><h3 id="ThreadLocal的使用"><a href="#ThreadLocal的使用" class="headerlink" title="ThreadLocal的使用"></a>ThreadLocal的使用</h3><p>Threadlocal的作用，它可以解决多线程的数据安全问题。</p>
+<p>Threadlocal它可以给当前线程关联一个数据（可以是普通变量，也可以是数组，集合）</p>
+<p>ThreadLocal的特点：</p>
+<p>​           1.Thread可以为当前线程关联一个数据，（它可以像Map一样存取数据，key为当前线程）</p>
+<p>​            2.每一个Threadlocal对象。如果要为当前线程关联多个数据，就需要使用多个Threadlocal对象实例。</p>
+<p>​          3.没个Threadlocal对象实例定义的时候，一般都是static类型</p>
+<p>​           4.Threadlocal中保存数据，在线程销毁后，会由jvm虚拟机自动释放</p>
+<p>使用Filter过滤器统一给所有的Service方法都加上try-catch来进行实现的管理</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderService</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">createOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+        String name <span class="token operator">=</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"OrderService 当前线程["</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"]中保存的数据是："</span> <span class="token operator">+</span>           ThreadLocalTest<span class="token punctuation">.</span>threadLocal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">new</span> <span class="token class-name">OrderDao</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">saveOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+    <span class="token punctuation">}</span> 
+<span class="token punctuation">}</span>
+      <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">OrderDao</span> <span class="token punctuation">{</span>
+          <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">saveOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+              String name <span class="token operator">=</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"OrderDao 当前线程["</span> <span class="token operator">+</span> name <span class="token operator">+</span> <span class="token string">"]中保存的数据是："</span> <span class="token operator">+</span> ThreadLocalTest<span class="token punctuation">.</span>threadLocal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+          <span class="token punctuation">}</span> 
+      <span class="token punctuation">}</span>
+          <span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ThreadLocalTest</span> <span class="token punctuation">{</span> 
+              <span class="token comment" spellcheck="true">// public static Map&lt;String,Object> data = new Hashtable&lt;String,Object>(); </span>
+              <span class="token keyword">public</span> <span class="token keyword">static</span> ThreadLocal<span class="token operator">&lt;</span>Object<span class="token operator">></span> threadLocal <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ThreadLocal</span><span class="token operator">&lt;</span>Object<span class="token operator">></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">private</span> <span class="token keyword">static</span> Random random <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">class</span> <span class="token class-name">Task</span> <span class="token keyword">implements</span> <span class="token class-name">Runnable</span> <span class="token punctuation">{</span> <span class="token annotation punctuation">@Override</span> <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> 
+                  <span class="token comment" spellcheck="true">// 在 Run 方法中，随机生成一个变量（线程要关联的数据），然后以当前线程名为 key 保存到 map 中 </span>
+                  Integer i <span class="token operator">=</span> random<span class="token punctuation">.</span><span class="token function">nextInt</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                  <span class="token comment" spellcheck="true">// 获取当前线程名 </span>
+                  String name <span class="token operator">=</span> Thread<span class="token punctuation">.</span><span class="token function">currentThread</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"线程["</span><span class="token operator">+</span>name<span class="token operator">+</span><span class="token string">"]生成的随机数是："</span> <span class="token operator">+</span> i<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                  <span class="token comment" spellcheck="true">// data.put(name,i); threadLocal.set(i);</span>
+                  <span class="token keyword">try</span> <span class="token punctuation">{</span>Thread<span class="token punctuation">.</span><span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">3000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                      <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">InterruptedException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                      e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                  <span class="token punctuation">}</span>
+                  <span class="token keyword">new</span> <span class="token class-name">OrderService</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">createOrder</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                  <span class="token comment" spellcheck="true">// 在 Run 方法结束之前，以当前线程名获取出数据并打印。查看是否可以取出操作</span>
+                  <span class="token comment" spellcheck="true">// Object o = data.get(name); </span>
+                  Object o <span class="token operator">=</span> threadLocal<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                  System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">"在线程["</span><span class="token operator">+</span>name<span class="token operator">+</span><span class="token string">"]快结束时取出关联的数据是："</span> <span class="token operator">+</span> o<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token punctuation">}</span> 
+                                                           <span class="token punctuation">}</span>
+              <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> <span class="token number">3</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">{</span> 
+                      <span class="token keyword">new</span> <span class="token class-name">Thread</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Task</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
+                                             <span class="token punctuation">}</span> 
+              <span class="token punctuation">}</span> 
+          <span class="token punctuation">}</span></code></pre>
+<h3 id="将所有异常都统一交给Tomcat，让tomcat展示友好错误界面"><a href="#将所有异常都统一交给Tomcat，让tomcat展示友好错误界面" class="headerlink" title="将所有异常都统一交给Tomcat，让tomcat展示友好错误界面"></a>将所有异常都统一交给Tomcat，让tomcat展示友好错误界面</h3><p>在web.xml中我们可以通过错误界面配置来进行管理</p>
 <h2 id="Json"><a href="#Json" class="headerlink" title="Json"></a>Json</h2><p>JSON (JavaScript Object Notation) 是一种轻量级的数据交换格式。 易于人阅读和编写。同时也易于机器解析 和生成。 它基于 JavaScript Programming Language, Standard ECMA-262 3rd Edition - December 1999 的一 个子集。 JSON 采用完全独立于语言的文本格式，但是也使用了类似于 C 语言家族的习惯（包括 C, C++, C#, Java, JavaScript, Perl, Python 等）。 这些特性使 JSON 成为理想的数据交换语言。</p>
 <p>json 是一种轻量级的数据交换格式。 </p>
 <p>轻量级指的是跟 xml 做比较。 </p>
@@ -1168,7 +1218,7 @@ Person p <span class="token operator">=</span> personMap2<span class="token punc
 <p>ajax 是一种浏览器通过 js 异步发起请求，局部更新页面的技术。 </p>
 <p>Ajax 请求的局部更新，浏览器地址栏不会发生变化 </p>
 <p>局部更新不会舍弃原来页面的内容</p>
-<h3 id="2-2、原生AJAX请求的示例："><a href="#2-2、原生AJAX请求的示例：" class="headerlink" title="2.2、原生AJAX请求的示例："></a>2.2、原生AJAX请求的示例：</h3><script>
+<h3 id="2-2、原生AJAX请求的示例"><a href="#2-2、原生AJAX请求的示例" class="headerlink" title="2.2、原生AJAX请求的示例"></a>2.2、原生AJAX请求的示例</h3><h3 id="2-3-jquery中的AJAX请求"><a href="#2-3-jquery中的AJAX请求" class="headerlink" title="2.3  jquery中的AJAX请求"></a>2.3  jquery中的AJAX请求</h3><script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -1919,7 +1969,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">14.7k</span>&nbsp;字
+                class="white-color">21.8k</span>&nbsp;字
             
             
             
