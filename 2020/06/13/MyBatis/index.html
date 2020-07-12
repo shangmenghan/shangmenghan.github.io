@@ -571,21 +571,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-04
+                    2020-07-09
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    5 分
                 </div>
                 
 
@@ -714,6 +714,35 @@
 <p>​                                class  SqlSessionFactoryBuilder</p>
 <p>​                                interface  SqlSessionFactory</p>
 <p>​                               interface   </p>
+<p>传递pojo对象</p>
+<p>Mybatis使用ognl表达式解析对象字段的值，#{}或者${}括号中的值为pojo属性名称</p>
+<p>传递pojo包装对象</p>
+<p>​         开发中通过pojo传递查询条件，查询条件是总和查询的条件，这时可以包装对象传递输入额参数，pojo类中包含pojo。</p>
+<p>1.mybatis中的连接池以及事务控制</p>
+<p>​             mybatis中的连接池使用及分析</p>
+<p>​            mybatis中的事务控制的分析</p>
+<p>2.mybatis基于xml配置的动态sql语句的使用</p>
+<p>​             mappers配置文件中的几个标签：</p>
+<p>​                         <if></if></p>
+<p>​                          <where></where></p>
+<p>​                           <foreach></foreach></p>
+<p>​                             <sql></sql></p>
+<p>3.mybatis中的多表操作</p>
+<p>​                 一对多</p>
+<p>​                一对一</p>
+<p>​                 多对多</p>
+<p>1.连接池：</p>
+<p>​              我们在实际开发中都会使用</p>
+<p>​              因为它可以减少我们获取链接所消耗的时间</p>
+<p>2.mybatis中的连接池</p>
+<p>​               mybatis连接池提供了3种方式的配置</p>
+<p>​                      配置的位置：</p>
+<p>​                                        主配置文件SqlMapConfig.xml中的dataSource标签，type属性就是采用何种连接池方式</p>
+<p>​                      type属性的取值：</p>
+<p>​                                POLLED  采用传统的javax.sql.DataSource规范中的连接池，mybatis’中有针对 规范的实现。</p>
+<p>​                      UNPOOLED  采用传统的获取连接的方式，虽然也实现javax,sql.DataSource接口，但并没有池的思想</p>
+<p>​                        JNDI    采用服务器技术提供的JNDI技术  来获取Datasource对象，不同的服务器所能拿到的DataSource是不一样的</p>
+<p>​                        注意：如果不是web或者maven的war工程、是不能使用的，我们课程中使用的是tomcat服务器。采用的连接池就是dbcp连接池</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1231,19 +1260,19 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/13/mehe/">
+                <a href="/2020/06/13/HC/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="hexo相关问题解决">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="jdbc">
                         
-                        <span class="card-title">hexo相关问题解决</span>
+                        <span class="card-title">jdbc</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            hexo相关问题解决​                                                                                                             
+                            ​                                                                                                                       
                         
                     </div>
                     <div class="publish-info">
@@ -1252,8 +1281,12 @@
                         </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            钱恒
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/blogJ/" class="post-category">
+                                    blogJ
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1261,8 +1294,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
+                    <a href="/tags/jdbc/">
+                        <span class="chip bg-color">jdbc</span>
                     </a>
                     
                 </div>
@@ -1276,19 +1309,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/13/java/">
+                <a href="/2020/06/13/javalianxi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Java">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="java练习题">
                         
-                        <span class="card-title">Java</span>
+                        <span class="card-title">java练习题</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Java​                                                                                                                   
+                            开发中                                                                                                                     
                         
                     </div>
                     <div class="publish-info">
@@ -1299,8 +1332,8 @@
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/blog/" class="post-category">
-                                    blog
+                            <a href="/categories/java%E7%BB%83%E4%B9%A0%E9%A2%98/" class="post-category">
+                                    java练习题
                                 </a>
                             
                             
@@ -1310,8 +1343,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/java/">
-                        <span class="chip bg-color">java</span>
+                    <a href="/tags/javas/">
+                        <span class="chip bg-color">javas</span>
                     </a>
                     
                 </div>
@@ -1464,7 +1497,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.8k</span>&nbsp;字
+                class="white-color">39.4k</span>&nbsp;字
             
             
             

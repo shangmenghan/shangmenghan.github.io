@@ -571,14 +571,14 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-05
+                    2020-07-07
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    66
+                    276
                 </div>
                 
 
@@ -601,8 +601,23 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <p>开发中                                                                                                                                                                                                                                </p>
-<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><p>图解java设计模式          </p>
-<p>​                                                                                                                                                                                                                                 </p>
+<h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="单例设计模式"><a href="#单例设计模式" class="headerlink" title="单例设计模式"></a>单例设计模式</h2><p>1.所谓的单例设计模式，就是采取一定的方法保证在整个的软件系统中，对某个类只能存在一个对象</p>
+<p>2.如何实现？</p>
+<p>//饿汉式</p>
+<p>​      1.私有化类的构造器</p>
+<p>​      2.内部创建类的对象</p>
+<p>​      3.提供公共的静态方法，返回类的对象</p>
+<p>​      4.要求此对象也必须声明为静态的</p>
+<p>//懒汉式</p>
+<pre><code>    1.   私有化类的构造器
+       2.   声明当前类的对象，没有初始化
+       3.   声明public，static的返回当前类的方法(判空)
+       4.   要求此对象也必须声明为静态的</code></pre><p>​      3.区分饿汉式和懒汉式</p>
+<p>​            饿汉式：坏处：对象加载时间过长</p>
+<p>​                             好处：饿汉式是线程安全的</p>
+<p>​            懒汉式：好处：延迟对象创建 </p>
+<p>​                             目前的坏处线程不安全                                                                                                                                                                                                                 </p>
+<p><img src="/2020/06/13/shijms/19.PNG" alt="使用场景"></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1169,19 +1184,19 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/13/spring/">
+                <a href="/2020/06/13/javascript/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="Spring">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="javascript">
                         
-                        <span class="card-title">Spring</span>
+                        <span class="card-title">javascript</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Spring​                                                                                                                 
+                            开发中                                                                                                                     
                         
                     </div>
                     <div class="publish-info">
@@ -1203,8 +1218,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring/">
-                        <span class="chip bg-color">Spring</span>
+                    <a href="/tags/javascript/">
+                        <span class="chip bg-color">javascript</span>
                     </a>
                     
                 </div>
@@ -1357,7 +1372,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.8k</span>&nbsp;字
+                class="white-color">39.4k</span>&nbsp;字
             
             
             

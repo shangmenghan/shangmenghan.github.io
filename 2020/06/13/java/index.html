@@ -571,21 +571,21 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-07-06
+                    2020-07-11
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    13.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    5 分
+                    52 分
                 </div>
                 
 
@@ -738,21 +738,1051 @@ Person person <span class="token operator">=</span> <span class="token keyword">
 </ol>
 <p>​             关于静态方法和静态属性没打架都从生命周期的角度去理解</p>
 <p>6.开发中，如何确定一个属性是否需要声明为static的？</p>
-<blockquote>
-<p>属性是可以被多个对象所共享的，不会随着对象的不同而不同</p>
-</blockquote>
-<blockquote>
-<p>类中的常量通常声明为static</p>
-</blockquote>
-<p>  开发中，如何确定一个方法是否需要声明为static的？</p>
-<blockquote>
-<p>​    操作静态属性的方法，通常设置为static的</p>
-</blockquote>
-<blockquote>
-<p>工具类中的方法，习惯声明为static的，包括Math，Arrays，Collections</p>
-</blockquote>
-<p>​         </p>
-<h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><p>IO流的原理及流的分类</p>
+<p>​                属性是可以被多个对象所共享的，不会随着对象的不同而不同</p>
+<p>​                    类中的常量通常声明为static</p>
+<p>​          开发中，如何确定一个方法是否需要声明为static的？</p>
+<p>​                 操作静态属性的方法，通常设置为static的</p>
+<p>​                工具类中的方法，习惯声明为static的，包括Math，Arrays，Collections。</p>
+<h2 id="代码块"><a href="#代码块" class="headerlink" title="代码块"></a>代码块</h2><p>​       1.代码块的作用：用来初始化类，对象</p>
+<p>​        2.代码块如果有修饰的话，只能使用static</p>
+<p>​        3.分类：静态代码块vs非静态代码块</p>
+<p>​        4.静态代码块</p>
+<p>​                  内部可以有输出语句</p>
+<p>​                  随着类的加载而执行，而且只执行一次</p>
+<p>​                  作用：初始化类的信息</p>
+<p>​                  如果一个类中定义了多个静态代码块，则按照声明的先后顺序执行</p>
+<p>​                   静态代码块的执行要优先于非静态代码块的执行</p>
+<p>​                     静态代码块只能调用静态的属性，静态的方法，不能调用非静态的结构</p>
+<p>​        5。非静态代码块</p>
+<p>​                   内部可以有输出语句 </p>
+<p>​                   随着对象的创建而执行</p>
+<p>​                  每创建一次，就执行一次非静态代码块</p>
+<p>​                  如果一个类中定义了多个非静态代码块，则按照声明的先后顺序执行</p>
+<p>​                   非静态代码块内可以调用静态的属性，静态的方法，或非静态的属性，非静态的方法</p>
+<p>​                  作用：可以在创建对象时，对对象的属性进行初始化</p>
+<p>对属性可以赋值的位置：</p>
+<p>1.默认初始化</p>
+<p>2.显式初始化 /5.在代码块中赋值</p>
+<p>3.构造器中初始化</p>
+<p>4.有了对象以后，可以通过“对象.属性”或“对象.方法”进行赋值</p>
+<h2 id="关键字final"><a href="#关键字final" class="headerlink" title="关键字final"></a>关键字final</h2><p>final：最终的</p>
+<p>1.final可以用来修饰的结构，类，方法，变量</p>
+<p>2.final用来修饰一个类：此类不能被其他类所继承。</p>
+<p>​                                        比如：String类，System类，StringBuffer类</p>
+<p>3.final用来修饰方法，表名此方法不能被重写</p>
+<p>​                         比如：Object类中的getClass（）；</p>
+<p>4.final用来修饰变量：此时的变量被称为一个常量</p>
+<p>​                                 final修饰属性，可以考虑赋值的位置有：显式初始化，代码块中初始化，构造器中初始化</p>
+<p>​                                     final修饰局部变量</p>
+<p>​                                                    尤其是使用final修饰形参时，表名此形参是一个常量值，当我们调用此方法时，给形参赋一个实参，一旦赋值以后，就只能在方法体内使用此形参，但不能进行重新赋值</p>
+<p>static final  用来修饰属性：全局常量 </p>
+<p>​                    用来修饰方法：</p>
+<h2 id="枚举类与注解"><a href="#枚举类与注解" class="headerlink" title="枚举类与注解"></a>枚举类与注解</h2><p>1.枚举类的使用</p>
+<p>2.注解的使用</p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>Error：java虚拟机无法解决的严重问题。如：JVM系统内部错误，资源耗尽等严重情况，比如：StackOverflowError和OOM。一般不编写针对性的代码进行处理。</p>
+<p>Exception：其它因编程错误或偶然的外在因素导致的一般性问题，可以使用针对性的代码进行处理，例如：</p>
+<p>​      空指针访问异常</p>
+<p>​      试图读取不存在的文件</p>
+<p>​      网络连接中断</p>
+<p>​      数组角标越界 </p>
+<p>一.异常体系结构</p>
+<p>   java.lang.throwable</p>
+<p>​                — java.lang,Error:一般不编写针对性的代 码进行 处理</p>
+<p>​               —java.lang.Exception:可以进行异常处理</p>
+<p>​                     ——编译时异常（checked）受检异常</p>
+<p>​                                    ——-IOException</p>
+<p>​                                    ——-FileNotFoundException</p>
+<p>​                                    ——-ClassNotFoundException</p>
+<p>​                    ——–运行时异常（unchecked）非受检异常 </p>
+<p>​                                     ——-NullPointerException</p>
+<p>​                                     ——–ArrayIndexOutofBoundsException</p>
+<p>​                              ——–ClassCastException</p>
+<p>​                              ——–NumberFormatException</p>
+<p>​                              ——–InputMismatchException</p>
+<p>面试题：常见的异常有哪些？举例说明    </p>
+<p>​      异常处理方式：</p>
+<p>​                    方式一：try-catch-finally</p>
+<p>​                    方式二：throws+异常类型</p>
+<p>​     异常的处理：抓抛模型</p>
+<p>​             过程一：”抛”：程序在执行的过程中，一旦出现异常，就会在异常代码处生成一个对应异常类的对象，并将此异常抛出</p>
+<p>​                    一旦抛出对象以后，其后的代码就不再执行</p>
+<p>​              关于异常对象的产生：1.系统自动生成的异常对象</p>
+<p>​                     2.手动的生成的一个异常对象，并抛出（throw）</p>
+<p>​                过程二：”抓”，可以理解为一场场的处           理方式：1.try-catch-finally 2throws</p>
+<p>二：try-catch-finally的使用</p>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">try</span><span class="token punctuation">{</span>
+
+​      <span class="token comment" spellcheck="true">//可能出现异常的代码</span>
+
+<span class="token punctuation">}</span><span class="token keyword">catch</span>（异常类型<span class="token number">1</span> 变量名）<span class="token punctuation">{</span>
+
+​            <span class="token comment" spellcheck="true">//处理异常的方式1</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">catch</span>（异常类型<span class="token number">1</span> 变量名）<span class="token punctuation">{</span>
+
+​            <span class="token comment" spellcheck="true">//处理异常的方式1</span>
+
+<span class="token punctuation">}</span>
+
+<span class="token keyword">catch</span>（异常类型<span class="token number">1</span> 变量名）<span class="token punctuation">{</span>
+
+           <span class="token comment" spellcheck="true">//处理异常的方式1</span>
+
+<span class="token punctuation">}</span><span class="token keyword">finally</span><span class="token punctuation">{</span>
+    <span class="token comment" spellcheck="true">//一定会处理的异常</span>
+<span class="token punctuation">}</span></code></pre>
+<p>说明：</p>
+<p>​       1.finally是可选的。</p>
+<p>​       2.使用try将可能出现的异常代码块包装起来，在执行过程中，一旦出现异常，就会生成一个对应异常类的对象，根据此对象的类型，去catch中进行匹配</p>
+<p>​        3.一旦try中的异常对象匹配到某一个catch时，就进入到catch中进行异常处理  一旦处理完成，就跳出当前的try-catch结构（在没有写finally的情况）。继续执行其后的代码</p>
+<p>​         4.catch中的异常类型如果没有子父类关系，则谁声明在上，谁声明在下没有关系</p>
+<p>​          5.常用异常的处理方式：1.String getMessage（）2.printStackTrace</p>
+<p>​              6.在try结构中声明的变量，在出了try结构以后，就不能再调用</p>
+<p>​               7.try  catch  finally可以相互嵌套</p>
+<p>​          体会：使用try-catch-finally处理编译异常，使得程序编译时就不再报错，但运行时仍可能报错，相当于我们使用try-catch将一个编译时可能出现的异常，延迟到运行时出现</p>
+<p>​          体会2：开发中，由于运行时异常比较常见，所以我们通常就不针对运行时异常编写try-catch-finally，针对编译时异常，我们说一定要考虑异常的处理</p>
+<p>​        try-catch-finally中finally的使用</p>
+<pre><code>                   1. finally是可选的
+                      2.   finally中声明的是一定会执行的代码，即使catch中由出现异常了， try中有reurn语句，catch中有retun语句
+                      3. 像数据库连接，输入输出流，网络编程Socket等资源，JVM是不能自动的回收的，我们需要自己手动的进行资源的释放，此时的资源释放，就需要声明在finally中</code></pre><p>异常处理的方式二：throws+异常类型</p>
+<p>​           1.”throws”+异常类型写在方法的声明处，指明此方法执行时，可能会抛出的异常类型，一旦当方法执行时，出现异常，仍会在异常代码处生成一个异常类的对象，此对象满足throws后异常类型时，就会被抛出，异常代码的后续代码。就不再执行！</p>
+<p>​          2.体会：try  catch  finally：真正的将异常给处理掉了。   throws的方式只是将异常抛给了方法的调用者，并没有真正将异常处理掉</p>
+<p>​             方法重写的规则之一：</p>
+<p>​           子类重写的方法抛出的异常类型不大于父类被重写的方法抛出的异常类型</p>
+<p>​          3.开发中如何选择使用try  catch  finally  还是throws？</p>
+<p>​             3.1   如果父类中被重写的方法没有throws方式处理异常，则子类重写的方法也不能使用throws，如果子类中重写的方法中，必须使用try  catch  finally方式处理</p>
+<p>​             3.2  执行的方法a中先后又调用了另外的几个方法，这几个方法是递进关系的，我们建议这几个方法使用throws方式进行处理，而执行的按方法a可以考虑使用try-catch-finally方式进行处理</p>
+<p>​          <img src="/2020/06/13/java/22.PNG" alt=""></p>
+<p>​              如何自定义异常类？</p>
+<p>​            1.继承于现有的异常结构：RuntimeException，Exception</p>
+<p>​                           2.提供全局常量：serialVersionUID</p>
+<p>​                  <img src="/2020/06/13/java/23.PNG" alt=""></p>
+<h2 id="多线程"><a href="#多线程" class="headerlink" title="多线程"></a>多线程</h2><p>基本概念</p>
+<p><img src="/2020/06/13/java/24.PNG" alt=""></p>
+<p><img src="/2020/06/13/java/26.PNG" alt=""></p>
+<p>多线程的创建，方式一：继承于Thread类</p>
+<p>​         1.创建一个继承于Thread’类的子类</p>
+<p>​         2.重写Thread类的run（）–&gt;此线程执行的操作声明在run方法中</p>
+<p>​          3.创建Thead类的子类对象</p>
+<p>​           4.通过此对象调用start（）</p>
+<p>​          问题一：我们不能通过直接调用run（）的方式启动线程</p>
+<p>​          问题二：不可以让已经start()线程去执行，会报IlllegalThreadstateException错误</p>
+<p>​          测试Thread中的常用的方法</p>
+<p>​                1.start（）：启动当前线程：调用当前线程的run()</p>
+<p>​                  2.run():通常需要重写Thread类中的此方法，  将创建的线程要执行的操作声明在此方法中</p>
+<p>​                     3.currentThread():静态方法，返回执行当前代码的线程</p>
+<p>​                  4.getname：获取当前线程的名字</p>
+<p>​                  5.setname：设置当前线程的名字</p>
+<p>​                  6.yield（）：释放当前线程 </p>
+<p>​                   7.join（）：在线程a中调用线程b的join（），此时a线程就处于阻塞状态，直到线程a完全执行完成后，线程a才结束阻塞状态</p>
+<p>​                    8.sleep：休眠</p>
+<p>​                     9.isAlive：判断线程是否存活</p>
+<p>线程优先级</p>
+<p>​     <img src="/2020/06/13/java/28.PNG" alt=""></p>
+<p>创建多线程的方式2：实现Runnnable接口</p>
+<p>​          1.创建一个实现了Runnable接口的类</p>
+<p>​           2.实现类去实现Runnable中的抽象方法：run（）</p>
+<p>​            3.创建实现类的对象</p>
+<p>​            4.将此对象作为参数传递到构造器中 ，创建Thread类的对象</p>
+<p>​              5.通过Thread类的对象调用start（）1.启动线程 2.调用当前线程的run—-》调用了Runnable类型的target的run方法</p>
+<p>​          比较创建线程的两种方式：</p>
+<p>​     开发中：优先选择实现Runnable接口的方式</p>
+<p>​       原因：1.实现的方式没有类的单继承局限性</p>
+<p>​                   2.实现的方式更适合来处理多个线程共享数据的情况</p>
+<p>​          联系：public  class  Thread implements  Runnable</p>
+<p>​               相同点：两种方式都需要重写run（），将线程执行的逻辑声明在run（）中</p>
+<p>​                 线程的生命周期</p>
+<p><img src="/2020/06/13/java/29.PNG" alt=""></p>
+<p><img src="/2020/06/13/java/30.PNG" alt=""></p>
+<p>线程的同步</p>
+<p>在java中，我们通过同步机制，来解决线程的安全问题</p>
+<p>方式一：同步代码块</p>
+<p>​     synchronized（同步监视器）{</p>
+<p>​         //需要被同步的代码块</p>
+<p>}</p>
+<p>说明：1.操作共享数据的代码，即为需要被同步的代码—-》不能包含代码多了也不能包含代码少了</p>
+<p>2.共享数据：多个数据共同操作的变量，比如：ticket就是共享数据</p>
+<p>3.同步监视器：俗称：锁。任何一个类的对象，都可以充当锁</p>
+<p>​          补充：在实现Runnable接口创建多线程的范式中，我们可以考虑使用this充当同步监视器</p>
+<p>​            要求：多个线程必须公用同一把锁</p>
+<p>说明:在继承Thread类创建多线程的方式中，慎用this充当同步监视器，考虑使用当前类充当同步监视器</p>
+<p>方拾贰：同步方法</p>
+<p>​      如果操作共享数据的代码完整的声明在一个方法中，我们不妨将此方法声明同步的</p>
+<p>5.同步的方式，解决了线程的安全问题。—–好处</p>
+<p>​          操作同步代码块时，只能有一个线程参与，其他线程等待，相当于是一个单线程的过程，效率低。</p>
+<p><img src="/2020/06/13/java/32.PNG" alt=""></p>
+<p>关于同步方法的总结：</p>
+<p>​         1.同步方法仍然涉及到同步监视器，知识不需要我们显示的声明</p>
+<p>​       2.非静态同步代码块，同步监视器是：this</p>
+<p>​          静态的同步方法，同步监视器是：当前类本身</p>
+<p>​         单例模式懒汉式线程安全问题</p>
+<p>​       <img src="/2020/06/13/java/33.PNG" alt=""></p>
+<p>​      线程死锁的问题</p>
+<p>​                <img src="/2020/06/13/java/44.PNG" alt=""></p>
+<p>我们使用同步时，要避免出现死锁</p>
+<p>解决线程安全问题的方式三:lock锁  jdk5新增</p>
+<p>1.面试题：synchronized与lock的异同？</p>
+<p>​          相同：二者都可以解决线程安全问题</p>
+<p>​           不同：synchronized机制在执行完相应的同步代码块以后，自动的释放同步监视器，Lock需要手动的启动同步（lock（）），同时结束的时候也要手动实现（unlock（））</p>
+<p><img src="/2020/06/13/java/45.PNG" alt=""></p>
+<p>面试题：如何解决线程安全问题？有几种方式</p>
+<p>线程通信：</p>
+<p><img src="/2020/06/13/java/46.PNG" alt=""></p>
+<p>wait(),notify(),notifyAll()三个方法时定义在java.lang.Object类中</p>
+<p><img src="/2020/06/13/java/47.PNG" alt=""></p>
+<p><img src="/2020/06/13/java/48.PNG" alt=""></p>
+<p>jdk5.0新增的线程的创建方式</p>
+<p><img src="/2020/06/13/java/49.PNG" alt=""></p>
+<p><img src="/2020/06/13/java/50.PNG" alt=""></p>
+<h2 id="java常用类"><a href="#java常用类" class="headerlink" title="java常用类"></a>java常用类</h2><p>字符串相关的类：String</p>
+<p>String:字符串，使用一对””引起来表示。<br>1.String声明为final的，不可被继承<br>2.String实现了Serializable接口：表示字符串是支持序列化的。<br>        实现了Comparable接口：表示String可以比较大小<br>3.String内部定义了final char[] value用于存储字符串数据<br>4.String:代表不可变的字符序列。简称：不可变性。<br>    体现：1.当对字符串重新赋值时，需要重写指定内存区域赋值，不能使用原有的value进行赋值。</p>
+<p>​               2.当对现有的字符串进行连接操作时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。<br>用String的replace()方法修改指定字符或字符串时，也需要重新指定内存区域赋值，不能使用原有的value进行赋值。<br>5.通过字面量的方式（区别于new）给一个字符串赋值，此时的字符串值声明在字符串常量池中。<br>6.字符串常量池中是不会存储相同内容的字符串的。</p>
+<p>String的实例化方式：<br>     方式一：通过字面量定义的方式<br>     方式二：通过new + 构造器的方式</p>
+<p> 面试题：String s = new String(“abc”);方式创建对象，在内存中创建了几个对象？<br>        两个:一个是堆空间中new结构，另一个是char[]对应的常量池中的数据：”abc”</p>
+<p>结论：<br>1.常量与常量的拼接结果在常量池。且常量池中不会存在相同内容的常量。<br>2.只要其中有一个是变量，结果就在堆中。<br>3.如果拼接的结果调用intern()方法，返回值就在常量池中</p>
+<p>String 与 byte[]之间的转换<br>编码：String –&gt; byte[]:调用String的getBytes()<br>解码：byte[] –&gt; String:调用String的构造器</p>
+<p>编码：字符串 –&gt;字节  (看得懂 —&gt;看不懂的二进制数据)<br>解码：编码的逆过程，字节 –&gt; 字符串 （看不懂的二进制数据 —&gt; 看得懂）</p>
+<p>说明：解码时，要求解码使用的字符集必须与编码时使用的字符集一致，否则会出现乱码。</p>
+<p>String 与 char[]之间的转换</p>
+<p>String –&gt; char[]:调用String的toCharArray()<br>char[] –&gt; String:调用String的构造器</p>
+<p>String 与基本数据类型、包装类之间的转换。</p>
+<p>String –&gt; 基本数据类型、包装类：调用包装类的静态方法：parseXxx(str)<br>基本数据类型、包装类 –&gt; String:调用String重载的valueOf(xxx)</p>
+<pre><code>替换：
+String replace(char oldChar, char newChar)：返回一个新的字符串，它是通过用 newChar 替换此字符串中出现的所有 oldChar 得到的。
+String replace(CharSequence target, CharSequence replacement)：使用指定的字面值替换序列替换此字符串所有匹配字面值目标序列的子字符串。
+String replaceAll(String regex, String replacement)：使用给定的 replacement 替换此字符串所有匹配给定的正则表达式的子字符串。
+String replaceFirst(String regex, String replacement)：使用给定的 replacement 替换此字符串匹配给定的正则表达式的第一个子字符串。
+
+
+匹配:
+boolean matches(String regex)：告知此字符串是否匹配给定的正则表达式。
+切片：
+String[] split(String regex)：根据给定正则表达式的匹配拆分此字符串。
+String[] split(String regex, int limit)：根据匹配给定的正则表达式来拆分此字符串，最多不超过limit个，如果超过了，剩下的全部都放到最后一个元素中。
+boolean endsWith(String suffix)：测试此字符串是否以指定的后缀结束
+boolean startsWith(String prefix)：测试此字符串是否以指定的前缀开始
+boolean startsWith(String prefix, int toffset)：测试此字符串从指定索引开始的子字符串是否以指定前缀开始
+
+boolean contains(CharSequence s)：当且仅当此字符串包含指定的 char 值序列时，返回 true
+int indexOf(String str)：返回指定子字符串在此字符串中第一次出现处的索引
+int indexOf(String str, int fromIndex)：返回指定子字符串在此字符串中第一次出现处的索引，从指定的索引开始
+int lastIndexOf(String str)：返回指定子字符串在此字符串中最右边出现处的索引
+int lastIndexOf(String str, int fromIndex)：返回指定子字符串在此字符串中最后一次出现处的索引，从指定的索引开始反向搜索
+
+注：indexOf和lastIndexOf方法如果未找到都是返回-1
+
+
+
+
+int length()：返回字符串的长度： return value.length
+char charAt(int index)： 返回某索引处的字符return value[index]
+boolean isEmpty()：判断是否是空字符串：return value.length == 0
+String toLowerCase()：使用默认语言环境，将 String 中的所有字符转换为小写
+String toUpperCase()：使用默认语言环境，将 String 中的所有字符转换为大写
+String trim()：返回字符串的副本，忽略前导空白和尾部空白
+boolean equals(Object obj)：比较字符串的内容是否相同
+boolean equalsIgnoreCase(String anotherString)：与equals方法类似，忽略大小写
+String concat(String str)：将指定字符串连接到此字符串的结尾。 等价于用“+”
+int compareTo(String anotherString)：比较两个字符串的大小
+String substring(int beginIndex)：返回一个新的字符串，它是此字符串的从beginIndex开始截取到最后的一个子字符串。
+String substring(int beginIndex, int endIndex) ：返回一个新字符串，它是此字符串从beginIndex开始截取到endIndex(不包含)的一个子字符串。
+</code></pre><pre><code>StringBuffer的常用方法：
+StringBuffer append(xxx)：提供了很多的append()方法，用于进行字符串拼接
+StringBuffer delete(int start,int end)：删除指定位置的内容
+StringBuffer replace(int start, int end, String str)：把[start,end)位置替换为str
+StringBuffer insert(int offset, xxx)：在指定位置插入xxx
+StringBuffer reverse() ：把当前字符序列逆转
+public int indexOf(String str)
+public String substring(int start,int end):返回一个从start开始到end索引结束的左闭右开区间的子字符串
+public int length()
+public char charAt(int n )
+public void setCharAt(int n ,char ch)
+
+        总结：
+        增：append(xxx)
+        删：delete(int start,int end)
+        改：setCharAt(int n ,char ch) / replace(int start, int end, String str)
+        查：charAt(int n )
+        插：insert(int offset, xxx)
+        长度：length();
+        *遍历：for() + charAt() / toString()
+
+
+
+
+         String、StringBuffer、StringBuilder三者的异同？
+    String:不可变的字符序列；底层使用char[]存储
+    StringBuffer:可变的字符序列；线程安全的，效率低；底层使用char[]存储
+    StringBuilder:可变的字符序列；jdk5.0新增的，线程不安全的，效率高；底层使用char[]存储
+
+    源码分析：
+    String str = new String();//char[] value = new char[0];
+    String str1 = new String("abc");//char[] value = new char[]{'a','b','c'};
+
+    StringBuffer sb1 = new StringBuffer();//char[] value = new char[16];底层创建了一个长度是16的数组。
+    System.out.println(sb1.length());//
+    sb1.append('a');//value[0] = 'a';
+    sb1.append('b');//value[1] = 'b';
+
+    StringBuffer sb2 = new StringBuffer("abc");//char[] value = new char["abc".length() + 16];
+
+    //问题1. System.out.println(sb2.length());//3
+    //问题2. 扩容问题:如果要添加的数据底层数组盛不下了，那就需要扩容底层的数组。
+             默认情况下，扩容为原来容量的2倍 + 2，同时将原有数组中的元素复制到新的数组中。
+
+            指导意义：开发中建议大家使用：StringBuffer(int capacity) 或 StringBuilder(int capacity)</code></pre><h2 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h2><pre class=" language-java"><code class="language-java">java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date类
+       <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">-</span>java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Date类
+
+<span class="token number">1</span><span class="token punctuation">.</span>两个构造器的使用
+    <span class="token operator">></span>构造器一：<span class="token function">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span>：创建一个对应当前时间的Date对象
+    <span class="token operator">></span>构造器二：创建指定毫秒数的Date对象
+<span class="token number">2</span><span class="token punctuation">.</span>两个方法的使用
+    <span class="token operator">></span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>显示当前的年、月、日、时、分、秒
+    <span class="token operator">></span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span>获取当前Date对象对应的毫秒数。（时间戳）
+
+<span class="token number">3</span><span class="token punctuation">.</span> java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Date对应着数据库中的日期类型的变量
+    <span class="token operator">></span>如何实例化
+    <span class="token operator">></span>如何将java<span class="token punctuation">.</span>util<span class="token punctuation">.</span>Date对象转换为java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Date对象
+       <span class="token comment" spellcheck="true">//情况一：</span>
+<span class="token comment" spellcheck="true">//        Date date4 = new java.sql.Date(2343243242323L);</span>
+<span class="token comment" spellcheck="true">//        java.sql.Date date5 = (java.sql.Date) date4;</span>
+        <span class="token comment" spellcheck="true">//情况二：</span>
+        Date date6 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Date date7 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">java<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>Date</span><span class="token punctuation">(</span>date6<span class="token punctuation">.</span><span class="token function">getTime</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><pre class=" language-java"><code class="language-java">一、集合框架的概述
+<span class="token operator">*</span>
+<span class="token operator">*</span> <span class="token number">1</span><span class="token punctuation">.</span>集合、数组都是对多个数据进行存储操作的结构，简称Java容器。
+<span class="token operator">*</span>  说明：此时的存储，主要指的是内存层面的存储，不涉及到持久化的存储（<span class="token punctuation">.</span>txt<span class="token punctuation">,</span><span class="token punctuation">.</span>jpg<span class="token punctuation">,</span><span class="token punctuation">.</span>avi，数据库中）
+<span class="token operator">*</span>
+<span class="token operator">*</span> <span class="token number">2.1</span> 数组在存储多个数据方面的特点：
+<span class="token operator">*</span>      <span class="token operator">></span> 一旦初始化以后，其长度就确定了。
+<span class="token operator">*</span>      <span class="token operator">></span> 数组一旦定义好，其元素的类型也就确定了。我们也就只能操作指定类型的数据了。
+<span class="token operator">*</span>       比如：String<span class="token punctuation">[</span><span class="token punctuation">]</span> arr<span class="token punctuation">;</span><span class="token keyword">int</span><span class="token punctuation">[</span><span class="token punctuation">]</span> arr1<span class="token punctuation">;</span>Object<span class="token punctuation">[</span><span class="token punctuation">]</span> arr2<span class="token punctuation">;</span>
+<span class="token operator">*</span> <span class="token number">2.2</span> 数组在存储多个数据方面的缺点：
+<span class="token operator">*</span>      <span class="token operator">></span> 一旦初始化以后，其长度就不可修改。
+<span class="token operator">*</span>      <span class="token operator">></span> 数组中提供的方法非常有限，对于添加、删除、插入数据等操作，非常不便，同时效率不高。
+<span class="token operator">*</span>      <span class="token operator">></span> 获取数组中实际元素的个数的需求，数组没有现成的属性或方法可用
+<span class="token operator">*</span>      <span class="token operator">></span> 数组存储数据的特点：有序、可重复。对于无序、不可重复的需求，不能满足。
+<span class="token operator">*</span>
+<span class="token operator">*</span> 二、集合框架
+<span class="token operator">*</span>      <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span>Collection接口：单列集合，用来存储一个一个的对象
+<span class="token operator">*</span>          <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span>List接口：存储有序的、可重复的数据。  <span class="token operator">--</span><span class="token operator">></span>“动态”数组
+<span class="token operator">*</span>              <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span>ArrayList、LinkedList、Vector
+<span class="token operator">*</span>
+<span class="token operator">*</span>          <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span>Set接口：存储无序的、不可重复的数据   <span class="token operator">--</span><span class="token operator">></span>高中讲的“集合”
+<span class="token operator">*</span>              <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span>HashSet、LinkedHashSet、TreeSet
+<span class="token operator">*</span>
+<span class="token operator">*</span>      <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span>Map接口：双列集合，用来存储一对<span class="token punctuation">(</span>key <span class="token operator">-</span> value<span class="token punctuation">)</span>一对的数据   <span class="token operator">--</span><span class="token operator">></span>高中函数：y <span class="token operator">=</span> <span class="token function">f</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+<span class="token operator">*</span>              <span class="token operator">|</span><span class="token operator">--</span><span class="token operator">--</span>HashMap、LinkedHashMap、TreeMap、Hashtable、Properties
+<span class="token operator">*</span>
+<span class="token operator">*</span>
+<span class="token operator">*</span> 三、Collection接口中的方法的使用
+     <span class="token operator">*</span> Collection接口中声明的方法的测试
+ <span class="token operator">*</span>
+ <span class="token operator">*</span> 结论：
+ <span class="token operator">*</span> 向Collection接口的实现类的对象中添加数据obj时，要求obj所在类要重写<span class="token function">equals</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>
+<span class="token operator">*</span></code></pre>
+<pre><code>* 集合元素的遍历操作，使用迭代器Iterator接口
+* 1.内部的方法：hasNext() 和  next()
+* 2.集合对象每次调用iterator()方法都得到一个全新的迭代器对象，
+* 默认游标都在集合的第一个元素之前。
+* 3.内部定义了remove(),可以在遍历的时候，删除集合中的元素。此方法不同于集合直接调用remove()</code></pre><pre><code>1. List接口框架
+*
+*    |----Collection接口：单列集合，用来存储一个一个的对象
+*          |----List接口：存储有序的、可重复的数据。  --&gt;“动态”数组,替换原有的数组
+*              |----ArrayList：作为List接口的主要实现类；线程不安全的，效率高；底层使用Object[] elementData存储
+*              |----LinkedList：对于频繁的插入、删除操作，使用此类效率比ArrayList高；底层使用双向链表存储
+*              |----Vector：作为List接口的古老实现类；线程安全的，效率低；底层使用Object[] elementData存储
+*
+*
+*   2. ArrayList的源码分析：
+*   2.1 jdk 7情况下
+*      ArrayList list = new ArrayList();//底层创建了长度是10的Object[]数组elementData
+*      list.add(123);//elementData[0] = new Integer(123);
+*      ...
+*      list.add(11);//如果此次的添加导致底层elementData数组容量不够，则扩容。
+*      默认情况下，扩容为原来的容量的1.5倍，同时需要将原有数组中的数据复制到新的数组中。
+*
+*      结论：建议开发中使用带参的构造器：ArrayList list = new ArrayList(int capacity)
+*
+*   2.2 jdk 8中ArrayList的变化：
+*      ArrayList list = new ArrayList();//底层Object[] elementData初始化为{}.并没有创建长度为10的数组
+*
+*      list.add(123);//第一次调用add()时，底层才创建了长度10的数组，并将数据123添加到elementData[0]
+*      ...
+*      后续的添加和扩容操作与jdk 7 无异。
+*   2.3 小结：jdk7中的ArrayList的对象的创建类似于单例的饿汉式，而jdk8中的ArrayList的对象
+*            的创建类似于单例的懒汉式，延迟了数组的创建，节省内存。
+*
+*  3. LinkedList的源码分析：
+*      LinkedList list = new LinkedList(); 内部声明了Node类型的first和last属性，默认值为null
+*      list.add(123);//将123封装到Node中，创建了Node对象。
+*
+*      其中，Node定义为：体现了LinkedList的双向链表的说法
+*      private static class Node&lt;E&gt; {
+            E item;
+            Node&lt;E&gt; next;
+            Node&lt;E&gt; prev;
+
+            Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) {
+            this.item = element;
+            this.next = next;
+            this.prev = prev;
+            }
+        }
+*
+*   4. Vector的源码分析：jdk7和jdk8中通过Vector()构造器创建对象时，底层都创建了长度为10的数组。
+*      在扩容方面，默认扩容为原来的数组长度的2倍。
+*
+*  面试题：ArrayList、LinkedList、Vector三者的异同？
+*  同：三个类都是实现了List接口，存储数据的特点相同：存储有序的、可重复的数据
+*  不同：见上
+*
+*
+*
+*   5. List接口中的常用方法
+void add(int index, Object ele):在index位置插入ele元素
+boolean addAll(int index, Collection eles):从index位置开始将eles中的所有元素添加进来
+Object get(int index):获取指定index位置的元素
+int indexOf(Object obj):返回obj在集合中首次出现的位置
+int lastIndexOf(Object obj):返回obj在当前集合中末次出现的位置
+Object remove(int index):移除指定index位置的元素，并返回此元素
+Object set(int index, Object ele):设置指定index位置的元素为ele
+List subList(int fromIndex, int toIndex):返回从fromIndex到toIndex位置的子集合
+
+总结：常用方法
+增：add(Object obj)
+删：remove(int index) / remove(Object obj)
+改：set(int index, Object ele)
+查：get(int index)
+插：add(int index, Object ele)
+长度：size()
+遍历：① Iterator迭代器方式
+     ② 增强for循环
+     ③ 普通的循环
+
+*</code></pre><pre><code> 1. Set接口的框架：
+*
+* |----Collection接口：单列集合，用来存储一个一个的对象
+*          |----Set接口：存储无序的、不可重复的数据   --&gt;高中讲的“集合”
+*              |----HashSet：作为Set接口的主要实现类；线程不安全的；可以存储null值
+*                  |----LinkedHashSet：作为HashSet的子类；遍历其内部数据时，可以按照添加的顺序遍历
+*                                      对于频繁的遍历操作，LinkedHashSet效率高于HashSet.
+*              |----TreeSet：可以按照添加对象的指定属性，进行排序。
+*
+*
+*  1. Set接口中没有额外定义新的方法，使用的都是Collection中声明过的方法。
+*
+*  2. 要求：向Set(主要指：HashSet、LinkedHashSet)中添加的数据，其所在的类一定要重写hashCode()和equals()
+*     要求：重写的hashCode()和equals()尽可能保持一致性：相等的对象必须具有相等的散列码
+*      重写两个方法的小技巧：对象中用作 equals() 方法比较的 Field，都应该用来计算 hashCode 值。
+*一、Set：存储无序的、不可重复的数据
+    以HashSet为例说明：
+    1. 无序性：不等于随机性。存储的数据在底层数组中并非按照数组索引的顺序添加，而是根据数据的哈希值决定的。
+
+    2. 不可重复性：保证添加的元素按照equals()判断时，不能返回true.即：相同的元素只能添加一个。
+
+    二、添加元素的过程：以HashSet为例：
+        我们向HashSet中添加元素a,首先调用元素a所在类的hashCode()方法，计算元素a的哈希值，
+        此哈希值接着通过某种算法计算出在HashSet底层数组中的存放位置（即为：索引位置），判断
+        数组此位置上是否已经有元素：
+            如果此位置上没有其他元素，则元素a添加成功。 ---&gt;情况1
+            如果此位置上有其他元素b(或以链表形式存在的多个元素），则比较元素a与元素b的hash值：
+                如果hash值不相同，则元素a添加成功。---&gt;情况2
+                如果hash值相同，进而需要调用元素a所在类的equals()方法：
+                       equals()返回true,元素a添加失败
+                       equals()返回false,则元素a添加成功。---&gt;情况2
+
+        对于添加成功的情况2和情况3而言：元素a 与已经存在指定索引位置上数据以链表的方式存储。
+        jdk 7 :元素a放到数组中，指向原来的元素。
+        jdk 8 :原来的元素在数组中，指向元素a
+        总结：七上八下
+
+        HashSet底层：数组+链表的结构。
+
+    1.向TreeSet中添加的数据，要求是相同类的对象。
+    2.两种排序方式：自然排序（实现Comparable接口） 和 定制排序（Comparator）
+
+
+    3.自然排序中，比较两个对象是否相同的标准为：compareTo()返回0.不再是equals().
+    4.定制排序中，比较两个对象是否相同的标准为：compare()返回0.不再是equals().
+</code></pre><pre><code>Collections:操作Collection、Map的工具类
+*
+*
+* 面试题：Collection 和 Collections的区别？
+
+
+reverse(List)：反转 List 中元素的顺序
+shuffle(List)：对 List 集合元素进行随机排序
+sort(List)：根据元素的自然顺序对指定 List 集合元素按升序排序
+sort(List，Comparator)：根据指定的 Comparator 产生的顺序对 List 集合元素进行排序
+swap(List，int， int)：将指定 list 集合中的 i 处元素和 j 处元素进行交换
+
+Object max(Collection)：根据元素的自然顺序，返回给定集合中的最大元素
+Object max(Collection，Comparator)：根据 Comparator 指定的顺序，返回给定集合中的最大元素
+Object min(Collection)
+Object min(Collection，Comparator)
+int frequency(Collection，Object)：返回指定集合中指定元素的出现次数
+void copy(List dest,List src)：将src中的内容复制到dest中
+boolean replaceAll(List list，Object oldVal，Object newVal)：使用新值替换 List 对象的所有旧值
+
+  Collections 类中提供了多个 synchronizedXxx() 方法，
+        该方法可使将指定集合包装成线程同步的集合，从而可以解决
+        多线程并发访问集合时的线程安全问题</code></pre><pre><code>一、Map的实现类的结构：
+*  |----Map:双列数据，存储key-value对的数据   ---类似于高中的函数：y = f(x)
+*         |----HashMap:作为Map的主要实现类；线程不安全的，效率高；存储null的key和value
+*              |----LinkedHashMap:保证在遍历map元素时，可以按照添加的顺序实现遍历。
+*                      原因：在原有的HashMap底层结构基础上，添加了一对指针，指向前一个和后一个元素。
+*                      对于频繁的遍历操作，此类执行效率高于HashMap。
+*         |----TreeMap:保证按照添加的key-value对进行排序，实现排序遍历。此时考虑key的自然排序或定制排序
+*                      底层使用红黑树
+*         |----Hashtable:作为古老的实现类；线程安全的，效率低；不能存储null的key和value
+*              |----Properties:常用来处理配置文件。key和value都是String类型
+*
+*
+*      HashMap的底层：数组+链表  （jdk7及之前）
+*                    数组+链表+红黑树 （jdk 8）
+*
+*
+*  面试题：
+*  1. HashMap的底层实现原理？
+*  2. HashMap 和 Hashtable的异同？
+*  3. CurrentHashMap 与 Hashtable的异同？（暂时不讲）
+*
+*  二、Map结构的理解：
+*    Map中的key:无序的、不可重复的，使用Set存储所有的key  ---&gt; key所在的类要重写equals()和hashCode() （以HashMap为例）
+*    Map中的value:无序的、可重复的，使用Collection存储所有的value ---&gt;value所在的类要重写equals()
+*    一个键值对：key-value构成了一个Entry对象。
+*    Map中的entry:无序的、不可重复的，使用Set存储所有的entry
+*
+*  三、HashMap的底层实现原理？以jdk7为例说明：
+*      HashMap map = new HashMap():
+*      在实例化以后，底层创建了长度是16的一维数组Entry[] table。
+*      ...可能已经执行过多次put...
+*      map.put(key1,value1):
+*      首先，调用key1所在类的hashCode()计算key1哈希值，此哈希值经过某种算法计算以后，得到在Entry数组中的存放位置。
+*      如果此位置上的数据为空，此时的key1-value1添加成功。 ----情况1
+*      如果此位置上的数据不为空，(意味着此位置上存在一个或多个数据(以链表形式存在)),比较key1和已经存在的一个或多个数据
+*      的哈希值：
+*              如果key1的哈希值与已经存在的数据的哈希值都不相同，此时key1-value1添加成功。----情况2
+*              如果key1的哈希值和已经存在的某一个数据(key2-value2)的哈希值相同，继续比较：调用key1所在类的equals(key2)方法，比较：
+*                      如果equals()返回false:此时key1-value1添加成功。----情况3
+*                      如果equals()返回true:使用value1替换value2。
+*
+*       补充：关于情况2和情况3：此时key1-value1和原来的数据以链表的方式存储。
+*
+*      在不断的添加过程中，会涉及到扩容问题，当超出临界值(且要存放的位置非空)时，扩容。默认的扩容方式：扩容为原来容量的2倍，并将原有的数据复制过来。
+*
+*      jdk8 相较于jdk7在底层实现方面的不同：
+*      1. new HashMap():底层没有创建一个长度为16的数组
+*      2. jdk 8底层的数组是：Node[],而非Entry[]
+*      3. 首次调用put()方法时，底层创建长度为16的数组
+*      4. jdk7底层结构只有：数组+链表。jdk8中底层结构：数组+链表+红黑树。
+*         4.1 形成链表时，七上八下（jdk7:新的元素指向旧的元素。jdk8：旧的元素指向新的元素）
+          4.2 当数组的某一个索引位置上的元素以链表形式存在的数据个数 &gt; 8 且当前数组的长度 &gt; 64时，此时此索引位置上的所数据改为使用红黑树存储。
+*
+*      DEFAULT_INITIAL_CAPACITY : HashMap的默认容量，16
+*      DEFAULT_LOAD_FACTOR：HashMap的默认加载因子：0.75
+*      threshold：扩容的临界值，=容量*填充因子：16 * 0.75 =&gt; 12
+*      TREEIFY_THRESHOLD：Bucket中链表长度大于该默认值，转化为红黑树:8
+*      MIN_TREEIFY_CAPACITY：桶中的Node被树化时最小的hash表容量:64
+*
+*  四、LinkedHashMap的底层实现原理（了解）
+*      源码中：
+*      static class Entry&lt;K,V&gt; extends HashMap.Node&lt;K,V&gt; {
+            Entry&lt;K,V&gt; before, after;//能够记录添加的元素的先后顺序
+            Entry(int hash, K key, V value, Node&lt;K,V&gt; next) {
+               super(hash, key, value, next);
+            }
+        }
+*
+*
+*   五、Map中定义的方法：
+添加、删除、修改操作：
+Object put(Object key,Object value)：将指定key-value添加到(或修改)当前map对象中
+void putAll(Map m):将m中的所有key-value对存放到当前map中
+Object remove(Object key)：移除指定key的key-value对，并返回value
+void clear()：清空当前map中的所有数据
+元素查询的操作：
+Object get(Object key)：获取指定key对应的value
+boolean containsKey(Object key)：是否包含指定的key
+boolean containsValue(Object value)：是否包含指定的value
+int size()：返回map中key-value对的个数
+boolean isEmpty()：判断当前map是否为空
+boolean equals(Object obj)：判断当前map和参数对象obj是否相等
+元视图操作的方法：
+Set keySet()：返回所有key构成的Set集合
+Collection values()：返回所有value构成的Collection集合
+Set entrySet()：返回所有key-value对构成的Set集合
+
+*总结：常用方法：
+* 添加：put(Object key,Object value)
+* 删除：remove(Object key)
+* 修改：put(Object key,Object value)
+* 查询：get(Object key)
+* 长度：size()
+* 遍历：keySet() / values() / entrySet()
+
+元视图操作的方法：
+ Set keySet()：返回所有key构成的Set集合
+ Collection values()：返回所有value构成的Collection集合
+ Set entrySet()：返回所有key-value对构成的Set集合
+ 添加、删除、修改操作：
+ Object put(Object key,Object value)：将指定key-value添加到(或修改)当前map对象中
+ void putAll(Map m):将m中的所有key-value对存放到当前map中
+ Object remove(Object key)：移除指定key的key-value对，并返回value
+ void clear()：清空当前map中的所有数据
+
+ //Properties:常用来处理配置文件。key和value都是String类型</code></pre><h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><pre><code>泛型的使用
+* 1.jdk 5.0新增的特性
+*
+* 2.在集合中使用泛型：
+*  总结：
+*  ① 集合接口或集合类在jdk5.0时都修改为带泛型的结构。
+*  ② 在实例化集合类时，可以指明具体的泛型类型
+*  ③ 指明完以后，在集合类或接口中凡是定义类或接口时，内部结构（比如：方法、构造器、属性等）使用到类的泛型的位置，都指定为实例化的泛型类型。
+*    比如：add(E e)  ---&gt;实例化以后：add(Integer e)
+*  ④ 注意点：泛型的类型必须是类，不能是基本数据类型。需要用到基本数据类型的位置，拿包装类替换
+*  ⑤ 如果实例化时，没有指明泛型的类型。默认类型为java.lang.Object类型。
+*
+* 3.如何自定义泛型结构：泛型类、泛型接口；泛型方法。见 GenericTest1.java
+*</code></pre><h2 id="File"><a href="#File" class="headerlink" title="File"></a>File</h2><pre><code> Files工具类的使用：操作文件或目录的工具类
+ * @author shkstart
+ * @create 2019 下午 2:44
+ */
+public class FilesTest {
+
+   @Test
+   public void test1() throws IOException{
+      Path path1 = Paths.get("d:\\nio", "hello.txt");
+      Path path2 = Paths.get("atguigu.txt");
+
+//    Path copy(Path src, Path dest, CopyOption … how) : 文件的复制
+      //要想复制成功，要求path1对应的物理上的文件存在。path1对应的文件没有要求。
+//    Files.copy(path1, path2, StandardCopyOption.REPLACE_EXISTING);
+
+//    Path createDirectory(Path path, FileAttribute&lt;?&gt; … attr) : 创建一个目录
+      //要想执行成功，要求path对应的物理上的文件目录不存在。一旦存在，抛出异常。
+      Path path3 = Paths.get("d:\\nio\\nio1");
+//    Files.createDirectory(path3);
+
+//    Path createFile(Path path, FileAttribute&lt;?&gt; … arr) : 创建一个文件
+      //要想执行成功，要求path对应的物理上的文件不存在。一旦存在，抛出异常。
+      Path path4 = Paths.get("d:\\nio\\hi.txt");
+//    Files.createFile(path4);
+
+//    void delete(Path path) : 删除一个文件/目录，如果不存在，执行报错
+//    Files.delete(path4);
+
+//    void deleteIfExists(Path path) : Path对应的文件/目录如果存在，执行删除.如果不存在，正常执行结束
+      Files.deleteIfExists(path3);
+
+//    Path move(Path src, Path dest, CopyOption…how) : 将 src 移动到 dest 位置
+      //要想执行成功，src对应的物理上的文件需要存在，dest对应的文件没有要求。
+//    Files.move(path1, path2, StandardCopyOption.ATOMIC_MOVE);
+
+//    long size(Path path) : 返回 path 指定文件的大小
+      long size = Files.size(path2);
+      System.out.println(size);
+
+   }
+
+   @Test
+   public void test2() throws IOException{
+      Path path1 = Paths.get("d:\\nio", "hello.txt");
+      Path path2 = Paths.get("atguigu.txt");
+//    boolean exists(Path path, LinkOption … opts) : 判断文件是否存在
+      System.out.println(Files.exists(path2, LinkOption.NOFOLLOW_LINKS));
+
+//    boolean isDirectory(Path path, LinkOption … opts) : 判断是否是目录
+      //不要求此path对应的物理文件存在。
+      System.out.println(Files.isDirectory(path1, LinkOption.NOFOLLOW_LINKS));
+
+//    boolean isRegularFile(Path path, LinkOption … opts) : 判断是否是文件
+
+//    boolean isHidden(Path path) : 判断是否是隐藏文件
+      //要求此path对应的物理上的文件需要存在。才可判断是否隐藏。否则，抛异常。
+//    System.out.println(Files.isHidden(path1));
+
+//    boolean isReadable(Path path) : 判断文件是否可读
+      System.out.println(Files.isReadable(path1));
+//    boolean isWritable(Path path) : 判断文件是否可写
+      System.out.println(Files.isWritable(path1));
+//    boolean notExists(Path path, LinkOption … opts) : 判断文件是否不存在
+      System.out.println(Files.notExists(path1, LinkOption.NOFOLLOW_LINKS));
+   }
+
+   /**
+    * StandardOpenOption.READ:表示对应的Channel是可读的。
+    * StandardOpenOption.WRITE：表示对应的Channel是可写的。
+    * StandardOpenOption.CREATE：如果要写出的文件不存在，则创建。如果存在，忽略
+    * StandardOpenOption.CREATE_NEW：如果要写出的文件不存在，则创建。如果存在，抛异常
+    *
+    * @author shkstart 邮箱：shkstart@126.com
+    * @throws IOException
+    */
+   @Test
+   public void test3() throws IOException{
+      Path path1 = Paths.get("d:\\nio", "hello.txt");
+
+//    InputStream newInputStream(Path path, OpenOption…how):获取 InputStream 对象
+      InputStream inputStream = Files.newInputStream(path1, StandardOpenOption.READ);
+
+//    OutputStream newOutputStream(Path path, OpenOption…how) : 获取 OutputStream 对象
+      OutputStream outputStream = Files.newOutputStream(path1, StandardOpenOption.WRITE,StandardOpenOption.CREATE);
+
+
+//    SeekableByteChannel newByteChannel(Path path, OpenOption…how) : 获取与指定文件的连接，how 指定打开方式。
+      SeekableByteChannel channel = Files.newByteChannel(path1, StandardOpenOption.READ,StandardOpenOption.WRITE,StandardOpenOption.CREATE);
+
+//    DirectoryStream&lt;Path&gt;  newDirectoryStream(Path path) : 打开 path 指定的目录
+      Path path2 = Paths.get("e:\\teach");
+      DirectoryStream&lt;Path&gt; directoryStream = Files.newDirectoryStream(path2);
+      Iterator&lt;Path&gt; iterator = directoryStream.iterator();
+      while(iterator.hasNext()){
+         System.out.println(iterator.next());
+      }
+
+
+   }</code></pre><h2 id="IO流"><a href="#IO流" class="headerlink" title="IO流"></a>IO流</h2><p>IO流的原理及流的分类</p>
+<p>​               按操作数据单位不同分为：字节流（8bit），字符流（16bit）</p>
+<p>​               按数据流向不同：输入流，输出流</p>
+<p>​               按流的角色的不同分为：节点流，处理流</p>
+<p>​         抽象基类                字节流               字符流        </p>
+<p>​            输入流              InputStream              Reader</p>
+<p>​            输出流              OutputStream           Writer</p>
+<p>java的io流共涉及40多个类，实际上非常规则，都是从如下4个抽象基类派生的。</p>
+<p>由这四个类派生出来的子类名称都是以其父类名作为子类名后缀。</p>
+<p><img src="/2020/06/13/java/20.PNG" alt=""></p>
+<p><img src="/2020/06/13/java/21.PNG" alt=""></p>
+<p>流的体系结构</p>
+<p>抽象基类                                    节点流（或文件流）                                      缓冲流（处理流的一种）</p>
+<p>Inputstream                              FileInputStream （read(byte[].buffer)）                       BufferedInputStream      （read(byte[] buffer)）</p>
+<p>outputstream                            FileOutputStream (write byte[] abfer,0,len)                    BufferedOutputStream     (write byte[] abfer,0,len)  </p>
+<p>Reader                                     FileReader  （read(char[].buffer)）                       BufferedReader          （read(char[].buffer)）readline()</p>
+<p>Writer                                      FileWriter       (write char[] abfer,0,len)                          BufferedWriter                (write char[] abfer,0,len)  </p>
+<pre class=" language-java"><code class="language-java"><span class="token comment" spellcheck="true">//数据读入  read()理解  返回读入一个一个字符。如果达到文件末尾  返回-1</span>
+<span class="token comment" spellcheck="true">//异常处理  为了保证流资源一定可以执行关闭操作，流必须执行关闭处理try-catch-finally处理</span>
+ <span class="token comment" spellcheck="true">//读入的文件一定要存在，否则会报FilenotfoundException</span></code></pre>
+<pre class=" language-java"><code class="language-java"><span class="token keyword">package</span> com<span class="token punctuation">.</span>qianheng<span class="token punctuation">.</span>基础<span class="token punctuation">.</span>IO流<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> org<span class="token punctuation">.</span>junit<span class="token punctuation">.</span>Test<span class="token punctuation">;</span>
+
+<span class="token keyword">import</span> java<span class="token punctuation">.</span>io<span class="token punctuation">.</span>*<span class="token punctuation">;</span>
+
+<span class="token comment" spellcheck="true">/**
+ * Created with IntelliJ IDEA.
+ *
+ * @Auther: 钱恒
+ * @Date: 2020/07/07/15:13
+ * @Description:
+ */</span>
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">ioTest</span> <span class="token punctuation">{</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"hello.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//相较于当前工程</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">getAbsoluteFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        File file1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"java基础\\hello.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/**
+     * @Author qianheng
+     * @Description //从内存中读入数据到控制台
+     * @Date 19:50 2020/7/7
+     * @Param []
+     * @return void
+     **/</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">iopractise</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">throws</span> IOException <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck="true">//实例化file对象</span>
+        FileReader fileReader <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"hello.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//相较于当前module下的</span>
+            System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">getAbsoluteFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//提供具体的流</span>
+            fileReader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//数据读入  read()理解  返回读入一个一个字符。如果达到文件末尾  返回-1</span>
+           <span class="token comment" spellcheck="true">//异常处理  为了保证流资源一定可以执行关闭操作，流必须执行关闭处理try-catch-finally处理</span>
+            <span class="token comment" spellcheck="true">//读入的文件一定要存在，否则会报FilenotfoundException</span>
+<span class="token comment" spellcheck="true">//        int read = fileReader.read();</span>
+<span class="token comment" spellcheck="true">//        while (read!=-1){</span>
+<span class="token comment" spellcheck="true">//            System.out.print((char)read);</span>
+<span class="token comment" spellcheck="true">//            read = fileReader.read();</span>
+<span class="token comment" spellcheck="true">//        }</span>
+            <span class="token comment" spellcheck="true">//语法上针对以的修改</span>
+            <span class="token keyword">int</span> data<span class="token punctuation">;</span>
+            <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token punctuation">(</span>data<span class="token operator">=</span>fileReader<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">print</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">char</span><span class="token punctuation">)</span>data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+         <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//流的关闭</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>fileReader<span class="token operator">!=</span>null<span class="token punctuation">)</span>
+                fileReader<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+
+        <span class="token punctuation">}</span>
+
+
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">//对read（）升级操作</span>
+    <span class="token annotation punctuation">@Test</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testFileReader11</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+        FileReader fr <span class="token operator">=</span> null<span class="token punctuation">;</span>
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//1.File类的实例化</span>
+            File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"hello.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//2.FileReader流的实例化</span>
+            fr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment" spellcheck="true">//3.读入的操作</span>
+            <span class="token comment" spellcheck="true">//read(char[] cbuffer):返回每次读入cbuffer数组中的字符的个数，如果达到文件末尾返回-1</span>
+            <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cbuffer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">char</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">int</span> len<span class="token punctuation">;</span>
+            <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>len<span class="token operator">=</span>fr<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>cbuffer<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//方式一：</span>
+<span class="token comment" spellcheck="true">//                for (int i = 0; i &lt; len; i++) {</span>
+<span class="token comment" spellcheck="true">//                    System.out.print(cbuffer[i]);</span>
+<span class="token comment" spellcheck="true">//</span>
+<span class="token comment" spellcheck="true">//                }</span>
+                <span class="token comment" spellcheck="true">//方式二</span>
+                <span class="token comment" spellcheck="true">//错误的写法对应着方式一的错误写法</span>
+<span class="token comment" spellcheck="true">//                String str = new String(cbuffer);</span>
+<span class="token comment" spellcheck="true">//                System.out.println(str);</span>
+                <span class="token comment" spellcheck="true">//正确的写法</span>
+              String str <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>cbuffer<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>str<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token keyword">finally</span> <span class="token punctuation">{</span>
+            <span class="token comment" spellcheck="true">//        4.资源关闭</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>fr<span class="token operator">!=</span>null<span class="token punctuation">)</span>
+                fr<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+
+
+
+    <span class="token punctuation">}</span>
+    <span class="token comment" spellcheck="true">/**
+     * @Author qianheng
+     * @Description //从内存中写出数据到硬盘的文件里
+     * 说明：
+     * 输出操作，对应的file可以不存在的，并不报异常
+     *  file对应的硬盘中的文件如果不存在，如果不存在，在输出的过程中，会自动创建此文件
+     *   file对应的硬盘中的文件如果存在：
+     *            如果流使用的构造器是：、FilEriter（file，false）/FilEriter（file） 原有文件进行覆盖
+     *            如果流使用的构造器是：、FilEriter（file，true） 不会对原有文件进行修改 而是对原有文件文件进行追加
+     *
+     * @Date 19:51 2020/7/7
+     * @Param []
+     * @return void
+     **/</span>
+        <span class="token annotation punctuation">@Test</span>
+       <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testFilter</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            FileWriter fw<span class="token operator">=</span> null<span class="token punctuation">;</span>
+            <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//1.提供File类的对象，指明写出到的文件</span>
+                File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"hello1.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//2.提供FileWriter的对象，用于数据的写出</span>
+                fw <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span>file<span class="token punctuation">,</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token comment" spellcheck="true">//3.写出的操作</span>
+                fw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"I have a dream!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                fw<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"you need to have a dream"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span><span class="token keyword">finally</span> <span class="token punctuation">{</span>
+                <span class="token comment" spellcheck="true">//4.流资源关闭</span>
+                <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                    <span class="token keyword">if</span> <span class="token punctuation">(</span>fw<span class="token operator">!=</span>null<span class="token punctuation">)</span>
+                    fw<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+
+
+
+       <span class="token punctuation">}</span>
+       <span class="token annotation punctuation">@Test</span>
+      <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">testFileReaderFileWriter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token punctuation">{</span>
+           FileReader fileReader <span class="token operator">=</span> null<span class="token punctuation">;</span>
+           FileWriter fileWriter <span class="token operator">=</span> null<span class="token punctuation">;</span>
+           <span class="token keyword">try</span> <span class="token punctuation">{</span>
+               <span class="token comment" spellcheck="true">//1.创建File类的对象，指明读入和写出的文件</span>
+               File file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span><span class="token string">"hello.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token comment" spellcheck="true">//2.创建输入流和输出流的对象</span>
+               fileReader <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileReader</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">;</span>
+               fileWriter <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">FileWriter</span><span class="token punctuation">(</span><span class="token string">"hello2.txt"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token comment" spellcheck="true">//3.数据的读入和写出操作</span>
+               <span class="token comment" spellcheck="true">//注意：不能用字符流来处理图片等字节数据</span>
+               fileWriter<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"I have a dream!\n"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               fileWriter<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">"you need to have a dream"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token keyword">char</span><span class="token punctuation">[</span><span class="token punctuation">]</span> cbuffer<span class="token operator">=</span><span class="token keyword">new</span> <span class="token class-name">char</span><span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token keyword">int</span> len<span class="token punctuation">;</span>
+                <span class="token keyword">while</span> <span class="token punctuation">(</span><span class="token punctuation">(</span>len<span class="token operator">=</span>fileReader<span class="token punctuation">.</span><span class="token function">read</span><span class="token punctuation">(</span>cbuffer<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">!=</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+                    String a <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">String</span><span class="token punctuation">(</span>cbuffer<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span>len<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                    System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+
+
+           <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span><span class="token keyword">finally</span> <span class="token punctuation">{</span><span class="token comment" spellcheck="true">//4.关闭资源</span>
+               <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                   <span class="token keyword">if</span> <span class="token punctuation">(</span>fileReader<span class="token operator">!=</span>null<span class="token punctuation">)</span>
+                   fileReader<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                   e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+               <span class="token keyword">try</span> <span class="token punctuation">{</span>
+                   <span class="token keyword">if</span> <span class="token punctuation">(</span>fileWriter<span class="token operator">!=</span>null<span class="token punctuation">)</span>
+                   fileWriter<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">IOException</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                   e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token punctuation">}</span>
+
+
+           <span class="token punctuation">}</span>
+
+
+        <span class="token punctuation">}</span>
+
+
+<span class="token punctuation">}</span>
+</code></pre>
+<p>转换流</p>
+<pre><code>处理流之二：转换流的使用
+* 1.转换流：属于字符流
+*   InputStreamReader：将一个字节的输入流转换为字符的输入流
+*   OutputStreamWriter：将一个字符的输出流转换为字节的输出流
+*
+* 2.作用：提供字节流与字符流之间的转换
+*
+* 3. 解码：字节、字节数组  ---&gt;字符数组、字符串
+*    编码：字符数组、字符串 ---&gt; 字节、字节数组
+*
+*
+* 4.字符集
+*ASCII：美国标准信息交换码。
+   用一个字节的7位可以表示。
+ISO8859-1：拉丁码表。欧洲码表
+   用一个字节的8位表示。
+GB2312：中国的中文编码表。最多两个字节编码所有字符
+GBK：中国的中文编码表升级，融合了更多的中文文字符号。最多两个字节编码
+Unicode：国际标准码，融合了目前人类使用的所有字符。为每个字符分配唯一的字符码。所有的文字都用两个字节来表示。
+UTF-8：变长的编码方式，可用1-4个字节来表示一个字符。</code></pre><pre><code>1.标准的输入、输出流
+1.1
+System.in:标准的输入流，默认从键盘输入
+System.out:标准的输出流，默认从控制台输出
+1.2
+System类的setIn(InputStream is) / setOut(PrintStream ps)方式重新指定输入和输出的流。
+
+1.3练习：
+从键盘输入字符串，要求将读取到的整行字符串转成大写输出。然后继续进行输入操作，
+直至当输入“e”或者“exit”时，退出程序。
+
+方法一：使用Scanner实现，调用next()返回一个字符串
+方法二：使用System.in实现。System.in  ---&gt;  转换流 ---&gt; BufferedReader的readLine()</code></pre><pre><code>2. 打印流：PrintStream 和PrintWriter
+
+2.1 提供了一系列重载的print() 和 println()
+2.2 练习：</code></pre><p>3.数据流</p>
+<pre><code>* RandomAccessFile的使用
+* 1.RandomAccessFile直接继承于java.lang.Object类，实现了DataInput和DataOutput接口
+* 2.RandomAccessFile既可以作为一个输入流，又可以作为一个输出流
+*
+* 3.如果RandomAccessFile作为输出流时，写出到的文件如果不存在，则在执行过程中自动创建。
+*   如果写出到的文件存在，则会对原有文件内容进行覆盖。（默认情况下，从头覆盖）
+*
+* 4. 可以通过相关的操作，实现RandomAccessFile“插入”数据的效果</code></pre><pre><code> 对象流的使用
+* 1.ObjectInputStream 和 ObjectOutputStream
+* 2.作用：用于存储和读取基本数据类型数据或对象的处理流。它的强大之处就是可以把Java中的对象写入到数据源中，也能把对象从数据源中还原回来。
+*
+* 3.要想一个java对象是可序列化的，需要满足相应的要求。见Person.java
+*
+* 4.序列化机制：
+* 对象序列化机制允许把内存中的Java对象转换成平台无关的二进制流，从而允许把这种
+* 二进制流持久地保存在磁盘上，或通过网络将这种二进制流传输到另一个网络节点。
+* 当其它程序获取了这种二进制流，就可以恢复成原来的Java对象。
+
+*</code></pre><h2 id="网络编程"><a href="#网络编程" class="headerlink" title="网络编程"></a>网络编程</h2><p><img src="/2020/06/13/java/52.PNG" alt=""></p>
+<p>一、网络编程中有两个主要的问题：</p>
+<ul>
+<li><p>1.如何准确地定位网络上一台或多台主机；定位主机上的特定的应用</p>
+</li>
+<li><p>2.找到主机后如何可靠高效地进行数据传输</p>
+</li>
+<li><p>二、网络编程中的两个要素：</p>
+</li>
+<li><p>1.对应问题一：IP和端口号</p>
+</li>
+<li><p>2.对应问题二：提供网络通信协议：TCP/IP参考模型（应用层、传输层、网络层、物理+数据链路层）</p>
+</li>
+</ul>
+<ul>
+<li><p>三、通信要素一：IP和端口号</p>
+</li>
+<li><ol>
+<li>IP:唯一的标识 Internet 上的计算机（通信实体）</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>在Java中使用InetAddress类代表IP</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>IP分类：IPv4 和 IPv6 ; 万维网 和 局域网</li>
+</ol>
+</li>
+<li><ol start="4">
+<li>域名:   <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a>   <a href="http://www.mi.com" target="_blank" rel="noopener">www.mi.com</a>  <a href="http://www.sina.com" target="_blank" rel="noopener">www.sina.com</a>  <a href="http://www.jd.com" target="_blank" rel="noopener">www.jd.com</a></li>
+</ol>
+</li>
+<li><p><a href="http://www.vip.com" target="_blank" rel="noopener">www.vip.com</a></p>
+</li>
+<li><ol start="5">
+<li>本地回路地址：127.0.0.1 对应着：localhost</li>
+</ol>
+</li>
+<li><ol start="6">
+<li>如何实例化InetAddress:两个方法：getByName(String host) 、 getLocalHost()</li>
+</ol>
+</li>
+<li><p>两个常用方法：getHostName() / getHostAddress()</p>
+</li>
+<li><ol start="7">
+<li>端口号：正在计算机上运行的进程。</li>
+</ol>
+</li>
+<li><p>要求：不同的进程有不同的端口号</p>
+</li>
+<li><p>范围：被规定为一个 16 位的整数 0~65535。</p>
+</li>
+<li><ol start="8">
+<li><p>端口号与IP地址的组合得出一个网络套接字：Socket</p>
+<p><img src="/2020/06/13/java/53.PNG" alt=""></p>
+</li>
+</ol>
+</li>
+</ul>
+<p><img src="/2020/06/13/java/54.PNG" alt=""></p>
+<p><img src="/2020/06/13/java/55.PNG" alt=""></p>
+<h2 id="反射机制"><a href="#反射机制" class="headerlink" title="反射机制"></a>反射机制</h2><p><img src="/2020/06/13/java/16.PNG" alt="反射"></p>
+<p><img src="/2020/06/13/java/18.PNG" alt=""></p>
+<p>通过反射：可以调用Person类的私有结构的</p>
+<p>关于java.lang.Class类的理解</p>
+<p>1.类的加载过程：</p>
+<p>程序经过javac.exe命令以后，会生成一个或多个字节码文件，接着我们使用java.exe命令对某个字节码文件进行解释运行，相当于将某个字节码文件加载到内存中，此过程就成为类的加载，加载到内存的类，我们就称为运行时类，此运行时类，就作为Class的一个实例。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -1270,13 +2300,13 @@ Person person <span class="token operator">=</span> <span class="token keyword">
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/06/13/MyBatis/">
+                <a href="/2020/06/13/suanfa/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="MyBatis">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="数据结构和算法">
                         
-                        <span class="card-title">MyBatis</span>
+                        <span class="card-title">数据结构和算法</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1293,8 +2323,8 @@ Person person <span class="token operator">=</span> <span class="token keyword">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/MyBatis/" class="post-category">
-                                    MyBatis
+                            <a href="/categories/blog/" class="post-category">
+                                    blog
                                 </a>
                             
                             
@@ -1304,8 +2334,8 @@ Person person <span class="token operator">=</span> <span class="token keyword">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/MyBatis/">
-                        <span class="chip bg-color">MyBatis</span>
+                    <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">
+                        <span class="chip bg-color">数据结构和算法</span>
                     </a>
                     
                 </div>
@@ -1319,19 +2349,19 @@ Person person <span class="token operator">=</span> <span class="token keyword">
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/13/javalianxi/">
+                <a href="/2020/06/13/ksfjdbc/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="java练习题">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="jdbc">
                         
-                        <span class="card-title">java练习题</span>
+                        <span class="card-title">jdbc</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            开发中                                                                                                                     
+                            ​                                                                                                                       
                         
                     </div>
                     <div class="publish-info">
@@ -1342,8 +2372,8 @@ Person person <span class="token operator">=</span> <span class="token keyword">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/java%E7%BB%83%E4%B9%A0%E9%A2%98/" class="post-category">
-                                    java练习题
+                            <a href="/categories/blogJ/" class="post-category">
+                                    blogJ
                                 </a>
                             
                             
@@ -1353,8 +2383,8 @@ Person person <span class="token operator">=</span> <span class="token keyword">
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/javas/">
-                        <span class="chip bg-color">javas</span>
+                    <a href="/tags/jdbc/">
+                        <span class="chip bg-color">jdbc</span>
                     </a>
                     
                 </div>
@@ -1507,7 +2537,7 @@ code[class*="language-"], pre[class*="language-"] { white-space: pre !important;
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">21.8k</span>&nbsp;字
+                class="white-color">39.4k</span>&nbsp;字
             
             
             
